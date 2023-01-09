@@ -8,8 +8,10 @@
     "export": "next export",
     "out": "next build && next export",
     "dev": "next",
-    "build": "next build",
-    "start": "next start -p $300"
+    "build": "npm i  --legacy-peer-deps && next build",
+    "start": "next start -p $300",
+    "npm_install": "npm i  --legacy-peer-deps"
+
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
