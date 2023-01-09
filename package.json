@@ -9,7 +9,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "heroku-postbuild": "npm install --legacy-peer-deps --prefix && npm run build"
+    "heroku-postbuild": "npm run build"
     },
   "dependencies": {
     "@emotion/react": "11.9.0",
