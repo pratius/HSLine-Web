@@ -8,10 +8,9 @@
     "export": "next export",
     "out": "next build && next export",
     "dev": "next",
-    "build": "npm i  --legacy-peer-deps && next build",
-    "start": "next start -p $300",
-    "npm_install": "npm i  --legacy-peer-deps"
-  },
+    "build": "next build",
+    "start": "next start -p $300"
+    },
   "dependencies": {
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
@@ -84,9 +83,5 @@
     "file-loader": "^5.0.2",
     "prettier": "2.6.2",
     "url-loader": "^3.0.0"
-  },
-  "engines": {
-    "node": "16.x",
-    "npm": "9.1.2"
   }
 }
