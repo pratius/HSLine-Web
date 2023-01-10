@@ -38,6 +38,7 @@ const nextConfig = {
 };
 
 module.exports = withPlugins([
+    
     [withImages],
     [
         withCSS({
@@ -52,7 +53,10 @@ module.exports = withPlugins([
                         },
                         images: {
                             disableStaticImages: true
-                        }
+                        },
+                        reactStrictMode: true,
+                        swcMinify: true, // <- To enable SWC compiler
+                        webpack5: false,
                     }
                 });
                 return config
@@ -62,5 +66,6 @@ module.exports = withPlugins([
     [
         withSass,
         scssConfig
-    ]
+    ],
+   
 ],nextConfig);
