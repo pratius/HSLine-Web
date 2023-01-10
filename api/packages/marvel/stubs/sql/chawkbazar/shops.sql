@@ -1,8 +1,0 @@
-INSERT INTO `shops` (`
-id`,
-`owner_id`,
-`name`,
-`slug
-`, `description`, `cover_image`, `logo`, `is_active`, `address`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 2, 'HSLine Shop', 'HSLine-shop', 'This is the HSLine Laravel shop owner', '{\"id\": 9, \"original\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/9/Untitled-4.jpg\", \"thumbnail\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/9/conversions/Untitled-4-thumbnail.jpg\"}', '{\"id\": 12, \"original\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/12/HSLine573_350.png\", \"thumbnail\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/12/conversions/HSLine573_350-thumbnail.jpg\"}', 0, '{\"zip\": \"8021\", \"city\": \"zurich\", \"state\": null, \"country\": \"Switzerland\", \"street_address\": \"44444\"}', '{\"contact\": \"0799302967\", \"socials\": [], \"website\": null, \"location\": []}', '2021-10-09 16:24:30', '2021-10-09 16:58:40'),
-(2, 2, 'HSLine Vendor shop', 'HSLine-vendor-shop', 'This is a vendor shop of HSLine', '{\"id\": 16, \"original\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/16/Untitled-3.jpg\", \"thumbnail\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/16/conversions/Untitled-3-thumbnail.jpg\"}', '{\"id\": 15, \"original\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/15/fashion.png\", \"thumbnail\": \"https://HSLinelaravel.s3.ap-southeast-1.amazonaws.com/15/conversions/fashion-thumbnail.jpg\"}', 1, '{\"zip\": \"02210\", \"city\": \"Boston\", \"state\": \"Massachusetts\", \"country\": \"USA\", \"street_address\": \"4360 Hampton Meadows\"}', '{\"contact\": \"01236547852\", \"socials\": [], \"website\": null, \"location\": []}', '2021-10-09 16:57:34', '2021-10-09 17:07:02');

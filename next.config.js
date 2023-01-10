@@ -49,6 +49,9 @@ module.exports = withPlugins([
                         options: {
                             limit: 100000,
                             name: '[name].[ext]'
+                        },
+                        images: {
+                            disableStaticImages: true
                         }
                     }
                 });
