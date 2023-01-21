@@ -3,7 +3,7 @@ import React from 'react';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { Button } from '@mui/material';
 import BlogPost from '@/components/BlogPost';
-import Carousel from 'react-material-ui-carousel';
+import Carousel from 'react-grid-carousel'
 
 export default function Blogs(offset) {
     const blogData = [
@@ -39,11 +39,19 @@ export default function Blogs(offset) {
                     <h5 className='font-xl text-gray-400 tracking-widest mb-2'>
                         TRADE NEWS
                     </h5>
-                    <Carousel className='w-full'>
+                    <Carousel className='w-full h-72' cols={3} rows={1} gap={50} loop>
                         {
-                            blogData.map((item, i) => <BlogPost key={i} data={item} />)
+                            blogData.map((item, i) => {
+                                return (
+                                    <Carousel.Item className="w-96">
+                                        <BlogPost key={i} data={item} />
+                                    </Carousel.Item>
+                                )
+                            })
                         }
+
                     </Carousel>
+
 
                 </div>
             </div>
