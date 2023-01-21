@@ -22,7 +22,7 @@ function Layout({ children }) {
                         <meta name="viewport" content="width=device-width, initial-scale=1" />
                         <link rel="icon" href="/favicon.ico" />
                         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+                        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
                         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet"></link>
                     </Head>
 
@@ -100,7 +100,7 @@ function Layout({ children }) {
                                                         style={{
                                                             height: 36,
                                                         }}
-                                                        src={Logo}
+                                                        src={"https://www.titosoftwares.com/images/logo-white.png"}
                                                         alt="Tito Logo"
                                                     />
 
@@ -119,6 +119,11 @@ function Layout({ children }) {
                                     </div>
 
                                     <div className="flex flex-wrap self-center">
+                                        <div className="text-xs text-white mr-3">
+
+                                            About Us
+
+                                        </div>
                                         <div className="text-xs text-white mr-3">
 
                                             Contact Us
