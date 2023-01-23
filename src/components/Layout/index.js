@@ -34,15 +34,15 @@ function Layout({ children }) {
                             <div className="flex flex-wrap justify-between self-center">
                                 <div className="flex">
                                     <div className="flex-initial text-center mr-2">
-
-                                        <img
-                                            style={{
-                                                height: 32,
-                                            }}
-                                            src={Logo}
-                                            alt="Tito Logo"
-                                        />
-
+                                        <Link href="/">
+                                            <img
+                                                style={{
+                                                    height: 32,
+                                                }}
+                                                src={Logo}
+                                                alt="Tito Logo"
+                                            />
+                                        </Link>
 
                                     </div>
                                 </div>
