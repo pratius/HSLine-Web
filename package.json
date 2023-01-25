@@ -1,38 +1,62 @@
 {
-  "name": "tito-webapp",
+  "name": "tito",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint"
-  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.5",
-    "@next/font": "13.1.2",
+    "@mui/material": "^5.11.6",
+    "@nivo/bar": "^0.80.0",
     "@nivo/core": "^0.80.0",
     "@nivo/geo": "^0.80.0",
+    "@nivo/line": "^0.80.0",
     "@nivo/treemap": "^0.80.0",
-    "autoprefixer": "^10.4.13",
-    "next": "13.1.2",
-    "next-compose-plugins": "^2.2.1",
-    "next-images": "^1.8.4",
-    "next-redux-wrapper": "^8.1.0",
-    "postcss": "^8.4.21",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.1",
+    "connected-react-router": "^6.9.3",
+    "fetch-intercept": "^2.4.0",
+    "history": "^4.10.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-grid-carousel": "^1.0.1",
-    "react-helmet": "^6.1.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^5.2.0",
+    "react-router-guards": "^1.0.2",
+    "react-scripts": "5.0.1",
     "redux": "^4.2.0",
-    "tailwindcss": "^3.2.4"
+    "sass": "^1.56.2",
+    "sort-by": "^1.2.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@zeit/next-css": "^1.0.1"
+    "tailwindcss": "^3.2.4"
   }
 }
