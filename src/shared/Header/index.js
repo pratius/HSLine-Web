@@ -51,7 +51,7 @@ function Header(props) {
 
                         </div>
                         <div className="ml-12">
-                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}>Sign Up</Button>
+                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} onClick={() => history.push("/auth/login")}>Get Started</Button>
                         </div>
                     </div>
                 </div>

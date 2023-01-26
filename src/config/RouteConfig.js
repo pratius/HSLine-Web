@@ -1,11 +1,11 @@
 
-// import authRoutes from "scenes/Auth/authRoutes";
+import authRoutes from "scenes/Auth/authRoutes";
 import Detail from "scenes/Detail";
 import Landing from "scenes/Landing";
 import maseterLayoutRoutes from "shared/MasterLayout/masterLayoutRoutes";
 
 const childRoutes = [
-  // authRoutes,
+  authRoutes,
   maseterLayoutRoutes
 
 ];
