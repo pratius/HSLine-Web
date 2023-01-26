@@ -22,7 +22,8 @@ function Register(props) {
     }
     return (
         <div className="auth-login">
-            <img src={AppLogo} className="app-logo" alt="appLogo" />
+            <img src={AppLogo} onClick={() => history.push("/")}
+                className="app-logo" alt="appLogo" />
             <div className="login-container">
                 <div className="left-container">
                     <img src={"https://mir-s3-cdn-cf.behance.net/project_modules/fs/78c4af118001599.608076cf95739.jpg"} alt="illustrationAuth" />
