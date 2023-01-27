@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function BlogPost(props) {
-    console.log("props:", props)
     const textColor = {
         loss: "#EE5253",
         profit: "#10AC84"

@@ -5,8 +5,8 @@ import ConnectWithoutContactRoundedIcon from '@mui/icons-material/ConnectWithout
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import { Chip, Typography } from '@mui/material';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-export default function CountryInfo(offset) {
-
+import { connect } from 'react-redux';
+function CountryInfo(props) {
     return (
         <div className='relative'>
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
@@ -14,8 +14,16 @@ export default function CountryInfo(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <div className='flex flex-row items-center '>
-                        <img className='w-20' src="https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png" alt=" countryFlag" />
-                        <h1 className='ml-3 text-5xl font-bold text-gray-800'>United States</h1>
+                        <img className='w-20' src={`https://www.countryflags.com/wp-content/uploads/${props.currentCountry.label.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt=" countryFlag" />
+                        <h1 className='ml-3 text-5xl font-bold text-gray-800'>{props.currentCountry && props.currentCountry.label}</h1>
+
+                    </div>
+                    <div className='flex flex-col mt-10'>
+                        <h4 className='text-sm text-gray-800 font-semibold'>OVERVIEW</h4>
+                        <p className='text-left  text-gray-600'>
+                            In 2020, China was the number 2 economy in the world in terms of GDP (current US$), the number 1 in total exports, the number 2 in total imports, the number 77 economy in terms of GDP per capita (current US$) and the number 28 most complex economy according to the Economic Complexity Index (ECI).
+                            <br />In 2020, China was the world's biggest exporter of Broadcasting Equipment ($223B), Computers ($156B), Office Machine Parts ($86.8B), Other Cloth Articles ($60.7B), and Telephones ($51B)
+                        </p>
 
                     </div>
                     <div className='flex flex-row mt-8 '>
@@ -83,7 +91,7 @@ export default function CountryInfo(offset) {
                     </div>
 
 
-                    <div className='flex flex-row mt-10 justify-center'>
+                    {/* <div className='flex flex-row mt-10 justify-center'>
                         <div className='generic-card-shadow px-2 py-2 flex flex-row items-center justify-center rounded cursor-pointer hover:drop-shadow-xl duration-300 mx-3'>
                             <TrendingUpRoundedIcon style={{ marginRight: 4, fontSize: 22 }} className="text-gray-800" />
                             <h6 className='text-sm font-semibold text-gray-800'>LATEST TRENDS</h6>
@@ -103,16 +111,9 @@ export default function CountryInfo(offset) {
                             <h6 className='text-sm font-semibold text-gray-800'>ECONOMIC COMPLEXITY</h6>
                         </div>
 
-                    </div>
-                    <div className='flex flex-col mt-10'>
-                        <h4 className='text-sm text-gray-800 font-semibold'>OVERVIEW</h4>
-                        <p className='text-left  text-gray-600'>
-                            In 2020, China was the number 2 economy in the world in terms of GDP (current US$), the number 1 in total exports, the number 2 in total imports, the number 77 economy in terms of GDP per capita (current US$) and the number 28 most complex economy according to the Economic Complexity Index (ECI).
-                            <br />In 2020, China was the world's biggest exporter of Broadcasting Equipment ($223B), Computers ($156B), Office Machine Parts ($86.8B), Other Cloth Articles ($60.7B), and Telephones ($51B)
-                        </p>
+                    </div> */}
 
-                    </div>
-                    <div className='flex flex-col mt-4'>
+                    {/* <div className='flex flex-col mt-4'>
                         <h4 className='text-sm text-gray-800 font-semibold tracking-widest'>EXPORTS</h4>
                         <div className='flex flex-row mt-2'>
                             <Chip className='drop-shadow-md mr-2' color="primary" label={"$1.3B - Japan"} size="small" />
@@ -139,7 +140,7 @@ export default function CountryInfo(offset) {
                             <Chip className='drop-shadow-md mr-2' color="primary" label={"$1.3B - Pakistan"} size="small" />
                         </div>
 
-                    </div>
+                    </div> */}
 
 
                 </div>
@@ -147,3 +148,11 @@ export default function CountryInfo(offset) {
         </div>
     )
 }
+
+
+const mapStateToProps = state => {
+    return { currentCountry: state.currentCountry };
+};
+export default connect(
+    mapStateToProps,
+)(CountryInfo);

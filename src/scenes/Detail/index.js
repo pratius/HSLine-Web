@@ -12,52 +12,43 @@ import ServiceTrade from "./components/service-trade";
 import MailIcon from '@mui/icons-material/Mail';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import SideNav from "shared/SideNav";
+import { useState } from "react";
 
 
-const drawerWidth = 240;
-
-
-const drawer = (
-    <div>
-
-        <List>
-            {['Home', 'Latest Trend', 'Historical Data', 'Service Trade'].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItemButton>
-                </ListItem>
-            ))}
-        </List>
-
-    </div>
-);
 
 
 export default function Detail() {
+    const [activeSection, setActiveSection] = useState(0)
+    const renderSections = () => {
+        switch (activeSection) {
+            case 0:
+                return <CountryInfo />;
+            case 1:
+                return <LatestTrends />
+            case 2:
+                return <HistoricalData />
+            case 3:
+                return <ServiceTrade />
+            case 4:
+                return <EconomicComplexity />
+            default:
+                return <CountryInfo />;
+
+
+        }
+    }
     return (
         <div>
 
             <Header />
             <div>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        display: { xs: 'none', sm: 'block', },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, top: 61, borderTop: '1px solid #f1f1f1' },
-                    }}
-                    open
-                >
-                    {drawer}
-
-                </Drawer>
+                <SideNav onChange={setActiveSection} />
                 <div className="flex flex-col ml-60 pt-4 mt-16">
+                    {renderSections()}
 
-
-                    <CountryInfo />
+                    {/* <CountryInfo />
                     <LatestTrends />
                     <HistoricalData />
                     <MarketGrowth />
@@ -65,7 +56,7 @@ export default function Detail() {
                     <EconomicComplexity />
                     <ComplexityRanking />
                     <CountryReport />
-                    <Footer />
+                    <Footer /> */}
 
                 </div>
             </div>

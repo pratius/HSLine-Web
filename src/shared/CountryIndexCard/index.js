@@ -2,7 +2,6 @@ import React from 'react';
 import { history } from "Store";
 
 export default function CountryIndexCard(props) {
-    console.log("props:", props)
     const textColor = {
         loss: "#EE5253",
         profit: "#10AC84"

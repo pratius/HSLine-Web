@@ -6,7 +6,6 @@ import { Route } from "react-router-dom";
 // var showillustration = "";
 
 function Auth(props) {
-  console.log("auth props:", props)
   return (
     // <Row>
     //   <Col span={24} xl={8}>

@@ -1,68 +1,78 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-
-import InputBase from '@mui/material/InputBase';
-
-import SearchIcon from '@mui/icons-material/Search';
-
-
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#F2F2F2",
-
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(3),
-        width: 'auto',
-    },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
-        fontSize: 12,
-        minWidth: 200,
-        color: "#7c7575"
-    },
-}));
-
-export default function SearchBox() {
-
+import { SearchOutlined } from '@mui/icons-material';
+import { Select, Spin } from 'antd';
+import debounce from 'lodash/debounce';
+import { useMemo, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+function DebounceSelect({ fetchOptions, debounceTimeout = 800, ...props }) {
+    const [fetching, setFetching] = useState(false);
+    const [options, setOptions] = useState([]);
+    const fetchRef = useRef(0);
+    const debounceFetcher = useMemo(() => {
+        const loadOptions = (value) => {
+            fetchRef.current += 1;
+            const fetchId = fetchRef.current;
+            setOptions([]);
+            setFetching(true);
+            fetchOptions(value).then((newOptions) => {
+                if (fetchId !== fetchRef.current) {
+                    // for fetch callback order
+                    return;
+                }
+                setOptions(newOptions);
+                setFetching(false);
+            });
+        };
+        return debounce(loadOptions, debounceTimeout);
+    }, [fetchOptions, debounceTimeout]);
     return (
-        <Box sx={{ flexGrow: 1 }}>
-
-            <Search>
-                <SearchIconWrapper>
-                    <SearchIcon style={{ color: "#A5A1A1" }} />
-                </SearchIconWrapper>
-                <StyledInputBase
-                    placeholder="Search products & countries"
-                    inputProps={{ 'aria-label': 'search' }}
-                />
-            </Search>
-
-        </Box>
+        <Select
+            labelInValue
+            filterOption={false}
+            onSearch={debounceFetcher}
+            notFoundContent={fetching ? <Spin size="small" /> : null}
+            {...props}
+            options={options}
+        />
     );
 }
+
+// Usage of DebounceSelect
+
+async function fetchUserList(username) {
+    console.log('fetching user', username);
+    return fetch('https://restcountries.com/v2/name/' + username)
+        .then((response) => response.json())
+        .then((response) =>
+            response.map((country) => ({
+                label: `${country.name}`,
+                value: country.alpha2Code,
+
+            })),
+        );
+}
+const SearchBox = (props) => {
+    const [value, setValue] = useState([]);
+    const dispatch = useDispatch()
+
+    return (
+        <DebounceSelect
+            value={value}
+            placeholder="Search countries & products"
+            fetchOptions={fetchUserList}
+            onChange={(newValue) => {
+                dispatch({ type: "CHANGE_CURRENT_COUNTRY", payload: newValue })
+
+            }}
+            showSearch
+            style={{
+                width: '100%',
+            }}
+            // bordered={false}
+            background={"#000000"}
+
+            suffixIcon={<SearchOutlined style={{ fontSize: 26 }} />}
+
+        />
+    );
+};
+export default SearchBox;

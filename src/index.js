@@ -5,18 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";
-import configureStore,{history} from 'Store';
+import configureStore, { history } from 'Store';
 import { fetchInterceptor } from 'services/intercept';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore()
+console.log("store created:", store.getState())
 
 root.render(
   <React.StrictMode>
-       <Provider store={store}>
-          <ConnectedRouter history={history}>
-        <App  httpInterpector={fetchInterceptor} />
-    </ConnectedRouter>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App httpInterpector={fetchInterceptor} />
+      </ConnectedRouter>
     </Provider>
   </React.StrictMode>
 );

@@ -40,10 +40,7 @@ export default function Hero(offset) {
 
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
-                    <div className='flex flex-col items-center  '>
-                        <h1 className='text-4xl font-bold text-black-600'>Insigts to perform trade with our world trade data</h1>
-                        <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} className="w-40 mt-3"><SearchRoundedIcon /> Explore </Button>
-                    </div>
+
                     <div className="md:flex mt-12">
                         <div className="flex flex-col">
                             <h5 className='font-xl text-gray-400 tracking-widest mb-2'>
