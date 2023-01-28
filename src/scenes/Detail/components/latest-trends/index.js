@@ -35,27 +35,27 @@ export default function LatestTrends(offset) {
 
                     </div>
                     <div className='flex mt-6 mb-4'>
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>EXPORT GROWTH (2022-2023)</small>
-                            <small className="text-xs ml-4 font-semibold" >33% (-1.4%)</small>
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>EXPORT GROWTH (2022-2023)</small>
+                            <small className="text-sm ml-4 font-semibold" >33% (-1.4%)</small>
 
                         </div>} size="small" />
 
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>IMPORT GROWTH (2022-2023)</small>
-                            <small className="text-xs ml-4 font-semibold" > 67% (-1.2%)</small>
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>IMPORT GROWTH (2022-2023)</small>
+                            <small className="text-sm ml-4 font-semibold" > 67% (-1.2%)</small>
 
                         </div>} size="small" />
 
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>MAIN EXPORTER</small>
-                            <small className="text-xs ml-4 font-semibold" >Guangdong Province ($78.4B)</small>
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>MAIN EXPORTER</small>
+                            <small className="text-sm ml-4 font-semibold" >Guangdong Province ($78.4B)</small>
 
                         </div>} size="small" />
 
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>MAIN DESTINATION</small>
-                            <small className="text-xs ml-4 font-semibold" >USA ($66.4B )</small>
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>MAIN DESTINATION</small>
+                            <small className="text-sm ml-4 font-semibold" >USA ($66.4B )</small>
 
                         </div>} size="small" />
 

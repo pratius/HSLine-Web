@@ -31,9 +31,9 @@ export default function EconomicComplexity(offset) {
                     </div>
                     <div className='flex mt-6 mb-4'>
 
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>FASTEST GROWING EXPORT MARKETS (2019 - 2020)</small>
-                            <small className="text-xs ml-4 font-semibold" >Germany ($14.3B)</small>
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>FASTEST GROWING EXPORT MARKETS (2019 - 2020)</small>
+                            <small className="text-sm ml-4 font-semibold" >Germany ($14.3B)</small>
 
                         </div>} size="small" />
                     </div>

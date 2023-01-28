@@ -307,6 +307,7 @@ const LineGraph = () => (
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         useMesh={true}
+        enableArea={true}
         legends={[]}
     />
 )

@@ -52,8 +52,9 @@ function Register(props) {
                         </div>
                         <p className="text-center text-gray-600 text-sm my-4">OR</p>
                         <div className="flex justify-center mb-4">
-                            <img className="w-7 mr-4 cursor-pointer hover:scale-110 duration-300" src="https://cdn.icon-icons.com/icons2/2428/PNG/512/google_black_logo_icon_147125.png" alt="OAuthLogo" />
-                            <img className="w-7  cursor-pointer hover:scale-110 duration-300" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Facebook%2BIcon%2BBlack.png" alt="OAuthLogo" />
+                            <img className="w-7 h-7 mr-4 cursor-pointer hover:scale-110 duration-300" src="https://www.pngitem.com/pimgs/m/107-1071787_google-brand-black-google-logo-vector-hd-png.png" alt="OAuthLogo" />
+                            <img className="w-7 h-7 cursor-pointer hover:scale-110 duration-300" src="https://freepngimg.com/download/facebook/141094-logo-circle-facebook-png-free-photo.png" alt="OAuthLogo" />
+
 
 
 

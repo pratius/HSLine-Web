@@ -30,15 +30,15 @@ export default function ServiceTrade(offset) {
                     </div>
                     <div className='flex mt-6 mb-4'>
 
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>USA EXPORTS SERVICES (2020)</small>
-                            <small className="text-xs ml-4 font-semibold" >$208B
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>USA EXPORTS SERVICES (2020)</small>
+                            <small className="text-sm ml-4 font-semibold" >$208B
                             </small>
 
                         </div>} size="small" />
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex'>
-                            <small className=''>USA IMPORTS SERVICES (2020)</small>
-                            <small className="text-xs ml-4 font-semibold" >$198B
+                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xs'>USA IMPORTS SERVICES (2020)</small>
+                            <small className="text-sm ml-4 font-semibold" >$198B
                             </small>
 
                         </div>} size="small" />
