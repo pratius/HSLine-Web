@@ -59,7 +59,7 @@ function Register(props) {
 
                         </div>
                         <p className="text-xs text-gray-600">
-                            By creating an account, you agree to Tito's <strong className="text-blue-400">Terms of Service</strong> and <strong className="text-blue-400">Privary Policy</strong>
+                            By creating an account, you agree to HSLine's <strong className="text-blue-400">Terms of Service</strong> and <strong className="text-blue-400">Privary Policy</strong>
                         </p>
 
 

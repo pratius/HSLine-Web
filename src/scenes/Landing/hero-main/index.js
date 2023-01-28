@@ -40,7 +40,12 @@ export default function Hero(offset) {
 
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
-
+                    <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-2xl ">
+                        INSIGHTS TO PERFORM TRADE WITH OUR WORLD TRADE DATA
+                    </h1>
+                    <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
+                        "Unlock the Potential of International Trade: Professional Strategies to Increase Profitability"
+                    </p>
                     <div className="md:flex mt-12">
                         <div className="flex flex-col">
                             <h5 className='font-xl text-gray-400 tracking-widest mb-2'>

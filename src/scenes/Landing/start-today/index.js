@@ -12,13 +12,12 @@ export default function StartToday(offset) {
 
                         <div className="pt-4 md:pt-10 lg:pt-0 max-w-sm ">
                             <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-3xl ">
-                                Get more with Tito trade data
+                            GET MORE WITH HSLINES 
                             </h1>
                             <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
+                            International trade data is invaluable for businesses, economists, and policymakers alike. This data can be used to gain valuable insights into the global economy, understand trading patterns, and develop appropriate strategies. Exploring international trade data with us can help your business identify critical trends, and potential new markets, and gain a competitive advantage. International business data is essential for anyone seeking to succeed in today's global economy.                            </p>
                             <div className="mt-5 sm:mt-2 sm:flex justify-start">
-                                <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}>Learn more</Button>
+                                <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}>Explore More</Button>
                             </div>
                         </div>
                         <div className="self-center    md:block  md:mr-10">

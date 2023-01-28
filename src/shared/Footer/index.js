@@ -21,7 +21,7 @@ function Footer(props) {
                                             height: 36,
                                         }}
                                         src={"https://www.titosoftwares.com/images/logo-white.png"}
-                                        alt="Tito Logo"
+                                        alt="HSLine Logo"
                                     />
 
                                 </div>
@@ -30,7 +30,7 @@ function Footer(props) {
                                         style={{ fontSize: 12 }}
                                         className="text-xs text-gray-400 self-center text-center"
                                     >
-                                        Tito Software Inc,  © 2023
+                                        HSLine Software Inc,  © 2023
                                     </div>
                                 </div>
                             </div>

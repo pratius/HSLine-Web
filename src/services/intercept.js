@@ -8,7 +8,7 @@ export const fetchInterceptor = fetchIntercept.register({
 
     if (true) {
       config.headers = config.headers || {};
-      config.headers["Platform"] = "TITOSOFTWARE";
+      config.headers["Platform"] = "HSLine";
 
       const token = localStorage.getItem("token");
 

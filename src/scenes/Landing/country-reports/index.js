@@ -28,10 +28,11 @@ export default function CountryReport(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
                     <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-2xl ">
-                        Economic Complexity Rankings
-
+                    BUILD TRADLE VISUALIZATIONS 
                     </h1>
-
+                    <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
+                    Custom visualizations of international trade can prove invaluable in providing an at-a-glance overview of complex global patterns. Professionally, they are used to illustrate the key flows of goods and services between countries, thereby providing stakeholders with an effective means of understanding the nuances of the global economy. Additionally, they can also be employed to track and analyze the impact of tariffs on global trade, giving further insights into the effects of policy decisions. Ultimately, custom visualizations of international trade are a powerful tool for anyone seeking to gain insight into the complexities of the global economy.
+                     </p>
                     <div className='flex flex-row '>
                         {countryData.map((item, key) => {
                             return <CountryImageCard key={key} data={item} />

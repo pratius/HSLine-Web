@@ -8,7 +8,7 @@ export default function EmptyState(props) {
             <div className="flex flex-col ml-4 ">
                 <h3 className="font-bold text-xl text-gray-800">Premium Analytics</h3>
                 <h5 className="text-center text-xs  text-gray-600 mb-4">
-                    Subscribe today to TITO pro and access the latest data
+                    Subscribe today to HSLine pro and access the latest data
 
                 </h5>
 

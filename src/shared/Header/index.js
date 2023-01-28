@@ -31,7 +31,7 @@ function Header(props) {
                                     height: 32,
                                 }}
                                 src={AppLogo}
-                                alt="Tito Logo"
+                                alt="HSLine Logo"
                             />
 
 

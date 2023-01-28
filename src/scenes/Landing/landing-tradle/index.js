@@ -20,13 +20,12 @@ export default function LandingTradle(offset) {
                         </div>
                         <div className="pt-4 md:pt-10 lg:pt-0 max-w-sm ">
                             <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-3xl ">
-                                Tito Tradle
+                            TAKE A INSIGHTS OF TRADLE WITH HSLINES
                             </h1>
                             <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
+                            Testing your International Trade knowledge is a critical task for any professional in the field. Doing so, allows you to evaluate your understanding of the complexities of conducting international business and the changing global landscape. It provides the opportunity to develop new skills and remain up-to-date on the latest trade-related developments. Consequently, ensuring that your International Trade knowledge is sound and current is essential for any professional seeking success in the field.                            </p>
                             <div className="mt-5 sm:mt-2 sm:flex justify-start">
-                                <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}>Learn more</Button>
+                                <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}>Explore More</Button>
                             </div>
                         </div>
 
