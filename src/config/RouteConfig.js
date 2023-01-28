@@ -1,4 +1,5 @@
 
+import AboutUs from "scenes/AboubtUs";
 import authRoutes from "scenes/Auth/authRoutes";
 import Detail from "scenes/Detail";
 import Landing from "scenes/Landing";
@@ -20,6 +21,12 @@ const routes = [
   {
     path: "/detail",
     component: Detail,
+    exact: true,
+    isProtected: false,
+  },
+  {
+    path: "/aboutus",
+    component: AboutUs,
     exact: true,
     isProtected: false,
   },

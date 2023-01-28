@@ -44,7 +44,7 @@ export default function Hero(offset) {
                         INSIGHTS TO PERFORM TRADE WITH OUR WORLD TRADE DATA
                     </h1>
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
-                        "Unlock the Potential of International Trade: Professional Strategies to Increase Profitability"
+                        Unlock the Potential of International Trade: Professional Strategies to Increase Profitability
                     </p>
                     <div className="md:flex mt-12">
                         <div className="flex flex-col">

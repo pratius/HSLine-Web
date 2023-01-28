@@ -39,7 +39,7 @@ function Footer(props) {
                     </div>
 
                     <div className="flex flex-wrap self-center">
-                        <div className="text-xs text-white mr-3">
+                        <div className="text-xs text-white mr-3" onClick={() => history.push("/aboutus")}>
 
                             About Us
 

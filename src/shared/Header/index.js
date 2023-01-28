@@ -70,7 +70,7 @@ function Header(props) {
                             </Space>
 
                             {SITE_STATIC_DATA.primaryMenu.map((menu, index) => (
-                                <div className="mx-3 flex items-center cursor-pointer" >
+                                <div  onClick={() => history.push(menu.path)} className="mx-3 flex items-center cursor-pointer" >
                                     <h6 className="font-sm text-gray-400 ">
                                         {menu.title}
                                     </h6>
