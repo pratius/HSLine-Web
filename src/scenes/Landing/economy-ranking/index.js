@@ -20,7 +20,7 @@ export default function EconomyRanking(offset) {
 
                     </h1>
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
-                    As a professional, it is important to be aware of which countries and regions are expected to experience growth in international trade in the future. Our website provides the information you need to make informed decisions about which markets to target. Through careful research and analysis, we can accurately predict which countries and regions are predicted to experience growth in the near future. By taking advantage of this valuable resource, you can ensure your company remains competitive in the global marketplace.
+                    As a professional, it is important to be aware of which countries and regions are expected to experience growth in international trade in the future. Our website provides the information you need to make informed decisions about which markets to target.<br/> Through careful research and analysis, we can accurately predict which countries and regions are predicted to experience growth in the near future. By taking advantage of this valuable resource, you can ensure your company remains competitive in the global marketplace.
                      </p>
                     <div className='flex flex-row items-center justify-between mt-4'>
                         <div className="flex flex-col items-center cursor-pointer">

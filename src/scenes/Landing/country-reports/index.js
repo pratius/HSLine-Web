@@ -31,7 +31,7 @@ export default function CountryReport(offset) {
                     BUILD TRADLE VISUALIZATIONS 
                     </h1>
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
-                    Custom visualizations of international trade can prove invaluable in providing an at-a-glance overview of complex global patterns. Professionally, they are used to illustrate the key flows of goods and services between countries, thereby providing stakeholders with an effective means of understanding the nuances of the global economy. Additionally, they can also be employed to track and analyze the impact of tariffs on global trade, giving further insights into the effects of policy decisions. Ultimately, custom visualizations of international trade are a powerful tool for anyone seeking to gain insight into the complexities of the global economy.
+                    Custom visualizations of international trade can prove invaluable in providing an at-a-glance overview of complex global patterns. Professionally, they are used to illustrate the key flows of goods and services between countries, thereby providing stakeholders with an effective means of understanding the nuances of the global economy.<br/> Additionally, they can also be employed to track and analyze the impact of tariffs on global trade, giving further insights into the effects of policy decisions. Ultimately, custom visualizations of international trade are a powerful tool for anyone seeking to gain insight into the complexities of the global economy.
                      </p>
                     <div className='flex flex-row '>
                         {countryData.map((item, key) => {
