@@ -44,7 +44,7 @@ function Footer(props) {
                             About Us
 
                         </div>
-                        <div className="text-xs text-white mr-3">
+                        <div className="text-xs text-white mr-3" onClick={() => history.push("/contactus")}>
 
                             Contact Us
 
