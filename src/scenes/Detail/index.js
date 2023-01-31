@@ -15,6 +15,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SideNav from "shared/SideNav";
 import { useState } from "react";
+import { menuList } from "shared/SideNav/nav.constants";
 
 
 
@@ -44,7 +45,7 @@ export default function Detail() {
 
             <Header />
             <div>
-                <SideNav type="detail" onChange={setActiveSection} />
+                <SideNav menuList={menuList['detail']} onChange={setActiveSection} />
                 <div className="flex flex-col ml-60 pt-4 mt-16">
                     {renderSections()}
 

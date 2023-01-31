@@ -4,7 +4,12 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import TravelExploreRoundedIcon from '@mui/icons-material/TravelExploreRounded';
 import DirectionsBoatRoundedIcon from '@mui/icons-material/DirectionsBoatRounded';
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
-
+//product page dummy icons
+import EmojiNatureRoundedIcon from '@mui/icons-material/EmojiNatureRounded';
+import GestureRoundedIcon from '@mui/icons-material/GestureRounded';
+import EggAltRoundedIcon from '@mui/icons-material/EggAltRounded';
+import LunchDiningRoundedIcon from '@mui/icons-material/LunchDiningRounded';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 export const menuList = {
     detail: [
         {
@@ -32,5 +37,48 @@ export const menuList = {
             key: "historical_trend",
             icon: <BarChartRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
         }
+    ],
+    products: [
+        {
+            name: "Fruits",
+            key: "fruit",
+            icon: <EmojiNatureRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />,
+            subMenu: [
+                {
+                    name: "Fresh Apples",
+                    key: "fresh_apple",
+                    icon: <ChevronRightRoundedIcon className="text-gray-700 " style={{ fontSize: 18 }} />,
+
+                },
+                {
+                    name: "Fresh Banana",
+                    key: "fresh_apple",
+                    icon: <ChevronRightRoundedIcon className="text-gray-700 " style={{ fontSize: 18 }} />,
+
+                },
+                {
+                    name: "Fresh Kiwis",
+                    key: "fresh_kiwis",
+                    icon: <ChevronRightRoundedIcon className="text-gray-700 " style={{ fontSize: 18 }} />,
+
+                }
+            ]
+        },
+        {
+            name: "Herbs & Spices",
+            key: "herb_spice",
+            icon: <GestureRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+        },
+        {
+            name: "Vegetables",
+            key: "vegetables",
+            icon: <EggAltRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+        },
+        {
+            name: "Meat & Seafood",
+            key: "meat_seafood",
+            icon: <LunchDiningRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+        },
+
     ]
 }
