@@ -1,5 +1,4 @@
 import React from 'react';
-import { history } from "Store";
 
 export default function ProductCard(props) {
     const textColor = {
@@ -8,7 +7,7 @@ export default function ProductCard(props) {
     }
 
     return (
-        <div onClick={() => history.push("/product/detail")} className='flex flex-col m-3 cursor-pointer hover:scale-105 duration-300' >
+        <div className='flex flex-col m-3 cursor-pointer hover:scale-105 duration-300' >
             <div className='card-shadow-light  w-32 h-32 rounded flex items-center justify-center   ' style={{ background: 'white' }}>
                 <img src={props.data.image} alt="postImage" className='rounded w-full h-full object-contain' />
             </div>

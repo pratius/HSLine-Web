@@ -5,11 +5,13 @@ import ContactUs from "scenes/ContactUs";
 import Detail from "scenes/Detail";
 import Landing from "scenes/Landing";
 import Products from "scenes/Products";
+import productRoutes from "scenes/Products/productRoutes";
 import maseterLayoutRoutes from "shared/MasterLayout/masterLayoutRoutes";
 
 const childRoutes = [
   authRoutes,
-  maseterLayoutRoutes
+  maseterLayoutRoutes,
+  productRoutes
 
 ];
 
@@ -23,12 +25,6 @@ const routes = [
   {
     path: "/detail",
     component: Detail,
-    exact: true,
-    isProtected: false,
-  },
-  {
-    path: "/products",
-    component: Products,
     exact: true,
     isProtected: false,
   },

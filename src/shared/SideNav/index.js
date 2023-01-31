@@ -56,7 +56,7 @@ export default function SideNav(props) {
                                                 <ListItemButton key={nestIndex} sx={{ pl: 4 }}>
                                                     <div className="flex align-center hover:text-gray-900 duration-300">
                                                         {nestedMenu.icon && nestedMenu.icon}
-                                                        <h5 className="ml-3 text-sm text-gray-700 hover:text-gray-900 duration-300">{menu.name}</h5>
+                                                        <h5 className="ml-3 text-sm text-gray-700 hover:text-gray-900 duration-300">{nestedMenu.name}</h5>
                                                     </div>
                                                 </ListItemButton>
                                             )
