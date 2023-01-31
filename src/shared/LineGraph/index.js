@@ -6,7 +6,8 @@ let data = [
         "data": [
             {
                 "x": "plane",
-                "y": 187
+                "y": 187,
+
             },
             {
                 "x": "helicopter",
@@ -299,7 +300,7 @@ const LineGraph = () => (
         axisLeft={null}
         enableGridX={false}
         enableGridY={false}
-        colors={{ scheme: 'nivo' }}
+        colors={{ scheme: 'greens' }}
         enablePoints={false}
         pointSize={10}
         pointColor={{ theme: 'background' }}

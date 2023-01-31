@@ -30,6 +30,13 @@ export const SITE_STATIC_DATA = {
             isNested: false,
             isEmphasized: false,
         },
+        {
+            title: "Contact Us",
+            path: "/contactus",
+            isExternal: false,
+            isNested: false,
+            isEmphasized: false,
+        },
 
     ],
 

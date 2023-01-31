@@ -1,6 +1,7 @@
 
 import AboutUs from "scenes/AboubtUs";
 import authRoutes from "scenes/Auth/authRoutes";
+import ContactUs from "scenes/ContactUs";
 import Detail from "scenes/Detail";
 import Landing from "scenes/Landing";
 import Products from "scenes/Products";
@@ -34,6 +35,12 @@ const routes = [
   {
     path: "/aboutus",
     component: AboutUs,
+    exact: true,
+    isProtected: false,
+  },
+  {
+    path: "/contactus",
+    component: ContactUs,
     exact: true,
     isProtected: false,
   },

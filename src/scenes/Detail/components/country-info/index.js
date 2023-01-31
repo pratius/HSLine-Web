@@ -10,6 +10,7 @@ import LineGraph from 'shared/LineGraph';
 import PopMenu from 'shared/PopMenu';
 import { Line } from '@nivo/line';
 import BarGraph from 'shared/BarGraph';
+import HeatMap from 'shared/HeatMap';
 function CountryInfo(props) {
     return (
         <div className='relative'>
@@ -105,6 +106,27 @@ function CountryInfo(props) {
                             </div>
 
                             <LineGraph />
+                        </div>
+                    </div>
+
+
+                    <div className='flex flex-col mt-10 '>
+
+
+                        <div className='flex mt-8 h-96 w-full  flex-col'>
+                            <h3 className='font-semibold text-lg mb-2'>Monthly Trade
+                            </h3>
+                            <div className='flex'>
+                                <div className='mr-3'>
+                                    <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
+                                </div>
+                                <div className='mr-3'>
+                                    <PopMenu label="Value" items={["Trade Value", "Growth", "Growth %"]} />
+                                </div>
+
+                            </div>
+
+                            <HeatMap />
                         </div>
                     </div>
 
