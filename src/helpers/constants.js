@@ -4,7 +4,7 @@ export const SITE_STATIC_DATA = {
     primaryMenu: [
         {
             title: "Explore Products",
-            path: "/products",
+            path: "/product/category",
             isExternal: false,
             isNested: false,
             isEmphasized: false,
