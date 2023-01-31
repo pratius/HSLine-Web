@@ -299,7 +299,7 @@ const LineGraph = () => (
         axisLeft={null}
         enableGridX={false}
         enableGridY={false}
-        colors={{ scheme: 'greys' }}
+        colors={{ scheme: 'nivo' }}
         enablePoints={false}
         pointSize={10}
         pointColor={{ theme: 'background' }}

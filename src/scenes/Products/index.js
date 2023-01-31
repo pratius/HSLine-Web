@@ -19,7 +19,7 @@ import { useState } from "react";
 
 
 
-export default function Detail() {
+export default function Products() {
     const [activeSection, setActiveSection] = useState(0)
     const renderSections = () => {
         switch (activeSection) {

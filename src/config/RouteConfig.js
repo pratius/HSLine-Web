@@ -3,6 +3,7 @@ import AboutUs from "scenes/AboubtUs";
 import authRoutes from "scenes/Auth/authRoutes";
 import Detail from "scenes/Detail";
 import Landing from "scenes/Landing";
+import Products from "scenes/Products";
 import maseterLayoutRoutes from "shared/MasterLayout/masterLayoutRoutes";
 
 const childRoutes = [
@@ -21,6 +22,12 @@ const routes = [
   {
     path: "/detail",
     component: Detail,
+    exact: true,
+    isProtected: false,
+  },
+  {
+    path: "/products",
+    component: Products,
     exact: true,
     isProtected: false,
   },
