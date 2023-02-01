@@ -18,9 +18,9 @@ function CountryInfo(props) {
 
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
-                    <div className='flex flex-row items-center '>
-                        <img className='w-20' src={`https://www.countryflags.com/wp-content/uploads/${props.currentCountry.label.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt=" countryFlag" />
-                        <h1 className='ml-3 text-5xl font-bold text-gray-800'>{props.currentCountry && props.currentCountry.label}</h1>
+                    <div className='flex flex-col sm:flex-row sm:items-center '>
+                        <img className='w-24 sm:w-20' src={`https://www.countryflags.com/wp-content/uploads/${props.currentCountry.label.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt=" countryFlag" />
+                        <h1 className='mt-3 sm:mt-0 sm:ml-3 text-4xl lg:text-5xl font-bold text-gray-800'>{props.currentCountry && props.currentCountry.label}</h1>
 
                     </div>
                     <div className='flex flex-col mt-10'>
@@ -116,7 +116,7 @@ function CountryInfo(props) {
                         <div className='flex mt-8 h-96 w-full  flex-col'>
                             <h3 className='font-semibold text-lg mb-2'>Monthly Trade
                             </h3>
-                            <div className='flex'>
+                            <div className='flex mb-6 sm:mb-0'>
                                 <div className='mr-3'>
                                     <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
                                 </div>

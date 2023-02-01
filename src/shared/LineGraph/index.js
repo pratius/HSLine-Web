@@ -275,7 +275,7 @@ let data = [
 const LineGraph = () => (
     <ResponsiveLine
         data={data}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 30, right: 5, bottom: 5, left: 5 }}
         xScale={{ type: 'point' }}
         yScale={{
             type: 'linear',
