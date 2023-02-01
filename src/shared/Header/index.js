@@ -38,7 +38,7 @@ function Header(props) {
 
 
                         </div>
-                        <Box sx={{ display: { xl: 'none', xs: 'block' } }}>
+                        <Box sx={{ display: { xl: 'none', xs: 'block', sm: 'none' } }}>
                             <MobileMenu />
                         </Box>
 
@@ -96,6 +96,9 @@ function Header(props) {
                                 <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} onClick={() => history.push("/auth/login")}>Get Started</Button>
                             </div>
                         </div>
+                    </Box>
+                    <Box sx={{ display: { xl: 'none', xs: 'none', sm: 'block' } }}>
+                        <MobileMenu />
                     </Box>
 
 
