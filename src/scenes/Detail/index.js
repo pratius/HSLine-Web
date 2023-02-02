@@ -15,6 +15,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SideNav from "shared/SideNav";
 import { useState } from "react";
+import { menuList } from "shared/SideNav/nav.constants";
+import PageMenu from "shared/PageMenu";
+import { Box } from "@mui/system";
 
 
 
@@ -40,15 +43,23 @@ export default function Detail() {
         }
     }
     return (
-        <div>
+
+        <div className="flex flex-col min-h-screenpt-4 mt-36 sm:mt-16">
+            <SideNav menuList={menuList['detail']} onChange={setActiveSection} />
 
             <Header />
-            <div>
-                <SideNav onChange={setActiveSection} />
-                <div className="flex flex-col ml-60 pt-4 mt-16">
-                    {renderSections()}
+            <div className="flex flex-col justify-center sm:ml-52" >
+                <Box
+                    sx={{ display: { xl: 'none', xs: 'block', sm: 'none' } }}
+                >
+                    <PageMenu menuList={menuList['detail']} onChange={setActiveSection} />
 
-                    {/* <CountryInfo />
+                </Box>
+                {renderSections()}
+
+            </div>
+
+            {/* <CountryInfo />
                     <LatestTrends />
                     <HistoricalData />
                     <MarketGrowth />
@@ -58,11 +69,8 @@ export default function Detail() {
                     <CountryReport />
                     <Footer /> */}
 
-                </div>
-            </div>
-
-
         </div>
+
 
 
     )

@@ -6,6 +6,11 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import { Chip, Typography } from '@mui/material';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { connect } from 'react-redux';
+import LineGraph from 'shared/LineGraph';
+import PopMenu from 'shared/PopMenu';
+import { Line } from '@nivo/line';
+import BarGraph from 'shared/BarGraph';
+import HeatMap from 'shared/HeatMap';
 function CountryInfo(props) {
     return (
         <div className='relative'>
@@ -13,9 +18,9 @@ function CountryInfo(props) {
 
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
-                    <div className='flex flex-row items-center '>
-                        <img className='w-20' src={`https://www.countryflags.com/wp-content/uploads/${props.currentCountry.label.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt=" countryFlag" />
-                        <h1 className='ml-3 text-5xl font-bold text-gray-800'>{props.currentCountry && props.currentCountry.label}</h1>
+                    <div className='flex flex-col sm:flex-row sm:items-center '>
+                        <img className='w-24 sm:w-20' src={`https://www.countryflags.com/wp-content/uploads/${props.currentCountry.label.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt=" countryFlag" />
+                        <h1 className='mt-3 sm:mt-0 sm:ml-3 text-4xl lg:text-5xl font-bold text-gray-800'>{props.currentCountry && props.currentCountry.label}</h1>
 
                     </div>
                     <div className='flex flex-col mt-10'>
@@ -26,8 +31,8 @@ function CountryInfo(props) {
                         </p>
 
                     </div>
-                    <div className='flex flex-row mt-8 '>
-                        <div className='flex flex-col  cursor-pointer hover:bg-slate-200 p-3 rounded duration-30 bg-white mr-4'>
+                    <div className='flex flex-col mt-8 '>
+                        {/* <div className='flex flex-col  cursor-pointer hover:bg-slate-200 p-3 rounded duration-30 bg-white mr-4'>
                             <h5 className='text-gray-600 font-semibold text-xs'>2020</h5>
                             <h3 className='text-gray-800 font-semibold text-sm'>ECONOMIC COMPLEXITY</h3>
                             <h1 className='text-gray-800 font-bold text-3xl mt-2'>0.96</h1>
@@ -85,9 +90,64 @@ function CountryInfo(props) {
 
                             </div>
 
+                        </div> */}
+
+                        <div className='flex mt-8 h-96 w-full  flex-col'>
+                            <h3 className='font-semibold text-lg mb-2'>Service Exports (2020)
+                            </h3>
+                            <div className='flex'>
+                                <div className='mr-3'>
+                                    <PopMenu label="Export Year" items={["2020", "EXPORTS"]} />
+                                </div>
+                                <div className='mr-3'>
+                                    <PopMenu label="Import Year" items={["2020", "EXPORTS"]} />
+                                </div>
+
+                            </div>
+
+                            <LineGraph />
                         </div>
+                    </div>
 
 
+                    <div className='flex flex-col mt-10 '>
+
+
+                        <div className='flex mt-8 h-96 w-full  flex-col'>
+                            <h3 className='font-semibold text-lg mb-2'>Monthly Trade
+                            </h3>
+                            <div className='flex mb-6 sm:mb-0'>
+                                <div className='mr-3'>
+                                    <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
+                                </div>
+                                <div className='mr-3'>
+                                    <PopMenu label="Value" items={["Trade Value", "Growth", "Growth %"]} />
+                                </div>
+
+                            </div>
+
+                            <HeatMap />
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col mt-10 '>
+
+
+                        <div className='flex mt-8 h-96 w-full  flex-col'>
+                            <h3 className='font-semibold text-lg mb-2'>Yearly Trade
+                            </h3>
+                            <div className='flex'>
+                                <div className='mr-3'>
+                                    <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
+                                </div>
+                                <div className='mr-3'>
+                                    <PopMenu label="Value" items={["Trade Value", "Growth", "Growth %"]} />
+                                </div>
+
+                            </div>
+
+                            <BarGraph />
+                        </div>
                     </div>
 
 

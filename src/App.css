@@ -17,3 +17,7 @@ body {
 .card-shadow-light {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+.width-48-perc {
+  width: 44% !important;
+}

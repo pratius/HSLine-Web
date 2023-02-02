@@ -6,7 +6,8 @@ let data = [
         "data": [
             {
                 "x": "plane",
-                "y": 187
+                "y": 187,
+
             },
             {
                 "x": "helicopter",
@@ -274,7 +275,7 @@ let data = [
 const LineGraph = () => (
     <ResponsiveLine
         data={data}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 30, right: 5, bottom: 5, left: 5 }}
         xScale={{ type: 'point' }}
         yScale={{
             type: 'linear',
@@ -299,7 +300,7 @@ const LineGraph = () => (
         axisLeft={null}
         enableGridX={false}
         enableGridY={false}
-        colors={{ scheme: 'greys' }}
+        colors={{ scheme: 'greens' }}
         enablePoints={false}
         pointSize={10}
         pointColor={{ theme: 'background' }}
@@ -307,6 +308,7 @@ const LineGraph = () => (
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         useMesh={true}
+        enableArea={true}
         legends={[]}
     />
 )
