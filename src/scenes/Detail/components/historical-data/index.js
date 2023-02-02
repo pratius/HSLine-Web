@@ -12,8 +12,8 @@ export default function HistoricalData(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <h2 className='text-center font-bold text-4xl my-10 text-gray-800'>HISTORICAL DATA</h2>
-                    <div className='flex flex-row justify-between mt-4'>
-                        <div className='flex'>
+                    <div className='flex flex-col lg:flex-row justify-between mt-4'>
+                        <div className='flex flex-wrap lg:flex-row mb-6 lg:mb-0'>
                             <div className='mr-3'>
                                 <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
                             </div>
@@ -30,15 +30,15 @@ export default function HistoricalData(offset) {
 
 
                     </div>
-                    <div className='flex mt-6 mb-4'>
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
-                            <small className='text-xs'>TOP EXPORT (2020)</small>
-                            <small className="text-sm ml-4 font-semibold" > Broadcasting Equipment ($88B)</small>
+                    <div className='flex flex-wrap lg:flex-row mt-6 mb-4'>
+                        <Chip className='drop-shadow-md mr-2 mb-2 lg:mb-0' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xxs'>TOP EXPORT (2020)</small>
+                            <small className="text-xs ml-4 font-semibold" > Broadcasting Equipment ($88B)</small>
 
                         </div>} size="small" />
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
-                            <small className='text-xs'>TOP DESTINATION (2020)</small>
-                            <small className="text-sm ml-4 font-semibold" > United States ($99B)</small>
+                        <Chip className='drop-shadow-md mr-2 mb-2 lg:mb-0' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xxs'>TOP DESTINATION (2020)</small>
+                            <small className="text-xs ml-4 font-semibold" > United States ($99B)</small>
 
                         </div>} size="small" />
                     </div>

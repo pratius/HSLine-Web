@@ -15,8 +15,8 @@ export default function EconomicComplexity(offset) {
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <h2 className='text-center font-bold text-4xl my-10 text-gray-800'>ECONOMIC COMPLEXITY
                     </h2>
-                    <div className='flex flex-row justify-between mt-4'>
-                        <div className='flex'>
+                    <div className='flex flex-col lg:flex-row justify-between mt-4'>
+                        <div className='flex mb-6 lg:mb-0'>
                             <div className='mr-3'>
                                 <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
                             </div>
@@ -29,11 +29,11 @@ export default function EconomicComplexity(offset) {
 
 
                     </div>
-                    <div className='flex mt-6 mb-4'>
+                    <div className='flex flex-wrap lg:flex-row mt-6 mb-4'>
 
-                        <Chip className='drop-shadow-md mr-2 ' color="primary" label={<div className='flex items-center'>
-                            <small className='text-xs'>FASTEST GROWING EXPORT MARKETS (2019 - 2020)</small>
-                            <small className="text-sm ml-4 font-semibold" >Germany ($14.3B)</small>
+                        <Chip className='drop-shadow-md mr-2 mb-2 lg:mb-0 ' color="primary" label={<div className='flex items-center'>
+                            <small className='text-xxs'>FASTEST GROWING EXPORT MARKETS (2019 - 2020)</small>
+                            <small className="text-xs ml-4 font-semibold" >Germany ($14.3B)</small>
 
                         </div>} size="small" />
                     </div>

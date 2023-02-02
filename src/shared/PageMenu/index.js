@@ -49,9 +49,7 @@ const useStyles = makeStyles({
         justifyContent: 'space-between',
 
     },
-    paper: {
-        height: '100vh',
-    }
+
 });
 
 export default function PageMenu(props) {
@@ -71,7 +69,7 @@ export default function PageMenu(props) {
 
     }
     return (
-        <div className="px-4 flex justify-between" onClick={() => setOpen(true)}>
+        <div className="px-4 flex justify-between" onClick={() => setOpen(!open)}>
 
             <div className={classes.listItem}>
                 <div className={classes.iconBox}>
@@ -81,12 +79,8 @@ export default function PageMenu(props) {
                 <label className='text-lg font-semibold text-gray-800'>Fruits</label>
             </div>
             <ExpandMoreRoundedIcon style={{ color: "3D424D" }} />
-            <Drawer anchor={"top"} open={open} onClose={() => setOpen(false)} PaperProps={{
-
-                sx: {
-                    height: '100vh'
-                }
-            }} className="h-screen" classes={{ paper: classes.paper }}>
+            <Drawer variant="temporary" onClickAway={() => setOpen(!open)}
+                anchor={"left"} open={open} onClose={() => setOpen(!open)} >
                 <List>
                     {props.menuList.map((menu, index) => (
                         <>
