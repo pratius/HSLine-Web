@@ -79,13 +79,13 @@ export default function PageMenu(props) {
                 <label className='text-lg font-semibold text-gray-800'>Fruits</label>
             </div>
             <ExpandMoreRoundedIcon style={{ color: "3D424D" }} />
-            <Drawer variant="temporary" onClickAway={() => setOpen(!open)}
+            <Drawer
                 anchor={"left"} open={open} onClose={() => setOpen(!open)} >
                 <List>
                     {props.menuList.map((menu, index) => (
                         <>
                             <ListItem key={index} disablePadding>
-                                <ListItemButton onClick={() => menu.subMenu && menu.subMenu.length > 0 ? handleClick() : handleMenuChange(index)}>
+                                <ListItemButton onClick={(e) => menu.subMenu !== undefined && menu.subMenu.length > 0 ? handleClick() : handleMenuChange(index)}>
 
                                     <div className="flex w-full align-center justify-between hover:text-gray-900 duration-300">
                                         <div className="flex align-center">

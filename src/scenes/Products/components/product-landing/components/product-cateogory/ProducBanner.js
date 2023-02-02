@@ -7,7 +7,7 @@ export default function ProductBanner(props) {
     }
 
     return (
-        <div className='rounded w-full h-48  flex flex-col justify-between m-2 cursor-pointer relative' style={{ background: 'white' }}>
+        <div className='rounded w-full h-48  flex flex-col justify-between sm:m-2 cursor-pointer relative' style={{ background: 'white' }}>
             <img src={props.data.postImage} alt="postImage" className='rounded  w-full h-full object-cover	' />
             <div className='absolute bottom-0 left-0 w-48 h-12 rounded-r-lg  flex flex-col justify-between  mb-4 p-1 px-3' style={{ background: 'white' }}>
                 <h3 className='text-xl font-semibold text-gray-800 ml-3' style={{ lineHeight: 1 }}>{props.data.title}</h3>

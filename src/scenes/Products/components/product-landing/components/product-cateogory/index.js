@@ -41,11 +41,19 @@ export default function ProductCategory(offset) {
     return (
 
 
-        <Carousel className='w-full h-72' cols={3} rows={1} gap={50} loop>
+        <Carousel className='w-full h-72' cols={3} rows={1} gap={50} loop responsiveLayout={[
+            {
+                breakpoint: 900,
+                cols: 1,
+                rows: 1,
+                gap: 10,
+                loop: true,
+            }
+        ]}>
             {
                 blogData.map((item, i) => {
                     return (
-                        <Carousel.Item className="w-72">
+                        <Carousel.Item className="w-full sm:w-72">
                             <ProductBanner key={i} data={item} />
                         </Carousel.Item>
                     )

@@ -67,17 +67,22 @@ export const menuList = {
         {
             name: "Herbs & Spices",
             key: "herb_spice",
-            icon: <GestureRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+            icon: <GestureRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />,
+            subMenu: []
         },
         {
             name: "Vegetables",
             key: "vegetables",
-            icon: <EggAltRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+            icon: <EggAltRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />,
+            subMenu: []
+
         },
         {
             name: "Meat & Seafood",
             key: "meat_seafood",
-            icon: <LunchDiningRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+            icon: <LunchDiningRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />,
+            subMenu: []
+
         },
 
     ]

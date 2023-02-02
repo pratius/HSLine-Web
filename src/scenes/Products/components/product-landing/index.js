@@ -1,4 +1,3 @@
-import { Button, Chip } from '@mui/material';
 import React from 'react';
 import ProductCard from './components/product-card';
 import ProductCategory from './components/product-cateogory';
