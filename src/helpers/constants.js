@@ -18,7 +18,7 @@ export const SITE_STATIC_DATA = {
         },
         {
             title: "Services",
-            path: "/",
+            path: "/services",
             isExternal: false,
             isNested: false,
             isEmphasized: false,

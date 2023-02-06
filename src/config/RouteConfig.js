@@ -6,6 +6,7 @@ import Detail from "scenes/Detail";
 import Landing from "scenes/Landing";
 import Products from "scenes/Products";
 import productRoutes from "scenes/Products/productRoutes";
+import Services from "scenes/Services";
 import maseterLayoutRoutes from "shared/MasterLayout/masterLayoutRoutes";
 
 const childRoutes = [
@@ -31,6 +32,12 @@ const routes = [
   {
     path: "/aboutus",
     component: AboutUs,
+    exact: true,
+    isProtected: false,
+  },
+  {
+    path: "/services",
+    component: Services,
     exact: true,
     isProtected: false,
   },

@@ -7,24 +7,24 @@ export default function Contact(offset) {
 
     return (
         <div className="contact_us">
-            <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-2xl ">
+            <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-5xl text-gray-800 ">
                 Research with us
             </h1>
-            <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
+            <p className="mb-2 text-xs sm:text-sm md:text-base text-gray-700 text-center sm:text-left">
                 Unveiling the Results of HSLines's Team Research on International Trade: An In-Depth Look at Global Economic Dynamics.
             </p>
             <br />
             {/* <img src={AppLogo} onClick={() => history.push("/")}
             className="app-logo" alt="appLogo" /> */}
-            <div className="contact-container">
-                <div className="left-container">
-                    <img src={"https://img.freepik.com/free-photo/business-handshake-two-men-demonstrating-their-agreement-sign-agreement-contract-their-firms-companies-enterprises_1423-100.jpg?w=2000&t=st=1674973040~exp=1674973640~hmac=f2dcb7c28ab81e7b84598098d2bf0201f6c78172e24d386472ca2d01c84d6656"} />
+            <div className="contact-container mt-6">
+                <div className="left-container" style={{ background: 'black' }}>
+                    <img className='object-contain' src={"https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483604-2912020.png "} />
 
                 </div>
                 <div className="right-container">
                     <div>
                         {/* <h2 className="font-semibold text-xl">Contact Us</h2> */}
-                        <h6>Have questions, comments, or concerns?
+                        <h6 className='text-lg font-semibold mb-6 text-gray-800'>feel free to reach out
 
                         </h6>
                     </div>
@@ -51,7 +51,7 @@ export default function Contact(offset) {
                                 rows={3} id="outlined-basic" label="Messages" type="tel" variant="outlined" fullWidth size="small" />
                         </div>
                         <div className="action-buttons">
-                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} fullWidth >Send Inquiry</Button>
+                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} fullWidth >Submit</Button>
 
                         </div>
 

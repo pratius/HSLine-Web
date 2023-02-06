@@ -4,14 +4,14 @@
     justify-content: center;
     height: 100vh;
     background: #fafafa;
-    
+
     box-sizing: border-box;
     align-items: center;
 
-    
+
 
     .contact-container {
-         width: 100%;
+        width: 100%;
         background: white;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         border-radius: 8px;
@@ -19,7 +19,7 @@
         display: flex;
 
         .left-container {
-             width: 50%;
+            width: 50%;
             height: 100%;
             display: flex;
             border-top-left-radius: 8px;
@@ -28,7 +28,7 @@
             img {
                 height: 100%;
                 width: 100%;
-                object-fit: cover;
+                object-fit: contain;
             }
         }
 
@@ -60,9 +60,11 @@
                         // height: 2.8rem;
                     }
                 }
+
                 .input-element_multiLine {
                     margin: .5rem 0;
                     height: 6.8rem;
+
                     input {
                         // height: 6.8rem;
                     }

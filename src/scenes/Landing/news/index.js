@@ -3,7 +3,7 @@ import React from 'react';
 import Carousel from 'react-grid-carousel'
 import BlogPost from 'shared/BlogPost';
 
-export default function Blogs(offset) {
+export default function TradeNews(offset) {
     const blogData = [
         {
             title: "Making Right Trade",
@@ -35,7 +35,8 @@ export default function Blogs(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
                     <h5 className='text-center sm:text-left font-xl text-gray-400 tracking-widest mb-2'>
-                        BLOGS                    </h5>
+                        TRADE NEWS
+                    </h5>
                     <Carousel className='w-full h-72' cols={2} rows={1} gap={50} loop>
                         {
                             blogData.map((item, i) => {
