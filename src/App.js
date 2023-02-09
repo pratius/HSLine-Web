@@ -18,10 +18,10 @@ function App() {
       {/* <CssBaseline enableColorScheme /> */}
       <AntConfigProvider
         theme={{
-          // token: {
-          //   colorPrimary: "#060606",
-
-          // }
+          token: {
+            colorPrimary: "#000000",
+            fontFamily: ["Source Sans Pro", "Open Sans"].join(",")
+          }
         }}
       >
         <Switch>

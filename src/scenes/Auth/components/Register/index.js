@@ -5,17 +5,43 @@ import AppLogo from "assets/images/logo.png"
 
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
-import { Button, Fab, TextField, Typography } from "@mui/material";
+import { Button, Input, Space, Typography, message } from "antd";
 function Register(props) {
+    const [messageApi, contextHolder] = message.useMessage();
+
+
+
     const [name, setName] = useState("")
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [isLoading, setLoading] = useState(false)
+
     const handleRegister = async () => {
+        setLoading(true)
+        let payload = {
+            email: email,
+            password: password
+        }
+        let response = await apiPost("http://localhost:3010/auth/register", payload)
+        if (response.status) {
+            messageApi.open({
+                type: 'success',
+                content: response.message + " redirecting to login page",
+            });
+            setTimeout(() => {
+                history.push("/")
+
+            }, 1500)
+        } else {
+            setLoading(false)
+            messageApi.open({
+                type: 'error',
+                content: response.message,
+            });
+        }
 
     };
-
 
     const handleNavigate = () => {
         history.push("/auth/login")
@@ -30,6 +56,7 @@ function Register(props) {
 
                 </div>
                 <div className="right-container">
+                    {contextHolder}
                     <div>
                         <h2 className="font-semibold text-xl">Sign up</h2>
                         <h6>You'll be up & running in 2 minutes
@@ -38,16 +65,15 @@ function Register(props) {
 
                     <div className="forms">
                         <div className="input-element">
-                            <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth size="small" />
+                            <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         </div>
+
                         <div className="input-element">
-                            <TextField id="outlined-basic" label="Name" variant="outlined" fullWidth size="small" />
+                            <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <div className="input-element">
-                            <TextField id="outlined-basic" label="Passowrd" type="password" variant="outlined" fullWidth size="small" />
-                        </div>
+
                         <div className="action-buttons">
-                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} fullWidth onClick={handleRegister}>{isLoading ? "Signing up" : "Sign up"}</Button>
+                            <Button type="primary" size="large" disabled={!email || !password} style={{ width: '100%', background: "black", color: (!email || !password) ? 'gray' : 'white' }} loading={isLoading} onClick={handleRegister}>{isLoading ? "Signing up" : "Sign up"}</Button>
 
                         </div>
                         <p className="text-center text-gray-600 text-sm my-4">OR</p>

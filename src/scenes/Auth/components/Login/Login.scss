@@ -59,14 +59,17 @@
                 justify-content: center;
 
                 .input-element {
-                    margin: 1.2rem 0;
+                    margin: 1rem 0;
 
-                    input {}
+                    input {
+                        height: 2.8rem;
+                    }
                 }
 
                 .action-buttons {
                     display: flex;
                     justify-content: flex-end;
+                    margin-top: 1rem;
                 }
 
                 article {

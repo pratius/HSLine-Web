@@ -5,8 +5,9 @@ import AppLogo from "assets/images/logo.png"
 import { MasterLayout } from "shared/MasterLayout";
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Input, Space, Typography, message } from "antd";
 function Login(props) {
+    const [messageApi, contextHolder] = message.useMessage();
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -14,6 +15,25 @@ function Login(props) {
 
     const handleNavigate = () => {
         history.push("/auth/register")
+    }
+
+    const handleLogin = async () => {
+        setLoading(true)
+        let payload = {
+            email: email,
+            password: password
+        }
+        let response = await apiPost("http://localhost:3010/auth/login", payload)
+        if (response.status) {
+            localStorage.setItem("token", response.data.accessToken)
+            history.push("/")
+        } else {
+            messageApi.open({
+                type: 'error',
+                content: response.message,
+            });
+            setLoading(false)
+        }
     }
     return (
         <div className="auth-login">
@@ -25,22 +45,25 @@ function Login(props) {
 
                 </div>
                 <div className="right-container">
+                    {contextHolder}
 
-                    <h2 className="font-semibold text-xl">Sign in</h2>
+                    <div>
+                        <h2 className="font-semibold text-xl">Sign in</h2>
+                        <h6>Good to see you back!
+                        </h6>
+                    </div>
                     <div className="forms">
                         <div className="input-element">
-                            <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth size="small" />
-
+                            <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="input-element">
-                            <TextField id="outlined-basic" label="Password" type="password" variant="outlined" fullWidth size="small" />
+                            <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} />
                         </div>
 
                         <div className="action-buttons">
-                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} fullWidth>Sign in</Button>
+                            <Button type="primary" size="large" disabled={!email || !password} style={{ width: '100%', background: "black", color: (!email || !password) ? 'gray' : 'white' }} loading={isLoading} onClick={handleLogin}>{isLoading ? "Signing in" : "Sign in"}</Button>
 
                         </div>
-
                         <p className="text-center text-gray-600 text-sm my-4">OR</p>
                         <div className="flex justify-center mb-4">
                             <img className="w-7 h-7 mr-4 cursor-pointer hover:scale-110 duration-300" src="https://www.pngitem.com/pimgs/m/107-1071787_google-brand-black-google-logo-vector-hd-png.png" alt="OAuthLogo" />
@@ -48,11 +71,9 @@ function Login(props) {
 
 
 
+
                         </div>
-
-
-
-                        <p className="font-semibold text-gray-600 text-xs mt-4 text-right cursor-pointer" onClick={handleNavigate}>Don't have an account?</p>
+                        <Typography onClick={handleNavigate}>Don't have an account?</Typography>
 
 
                     </div>
