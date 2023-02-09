@@ -70,6 +70,7 @@ function Register(props) {
 
                         <div className="input-element">
                             <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                            <p className="text-xxs text-gray-700 mt-2" style={{ lineHeight: 1 }}>Password must contain atleast 6 char,mix of upper and lower case letters and numbers</p>
                         </div>
 
                         <div className="action-buttons">
