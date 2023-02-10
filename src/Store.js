@@ -5,7 +5,7 @@ import { routerMiddleware } from "connected-react-router";
 
 import createRootReducer from "config/Reducer/Reducer";
 
-export const history = createBrowserHistory({ forceRefresh: true })
+export const history = createBrowserHistory()
 
 export default function configureStore() {
   const store = createStore(

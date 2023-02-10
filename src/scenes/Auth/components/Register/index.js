@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./Register.scss"
 import AuthIllustration from "assets/images/illustrations/loginillus.webp"
 import AppLogo from "assets/images/logo.png"
+import { useDispatch } from "react-redux";
 
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
-import { Button, Input, Space, Typography, message } from "antd";
+import { Button, Input, Space, Typography } from "antd";
 function Register(props) {
-    const [messageApi, contextHolder] = message.useMessage();
-
+    const dispatch = useDispatch()
 
 
     const [name, setName] = useState("")
@@ -25,17 +25,15 @@ function Register(props) {
         }
         let response = await apiPost("http://localhost:3010/auth/register", payload)
         if (response.status) {
-            messageApi.open({
+            props.toast.open({
                 type: 'success',
                 content: response.message + " redirecting to login page",
             });
-            setTimeout(() => {
-                history.push("/")
-
-            }, 1500)
+            dispatch({ type: "UPDATE_USER_INFO", payload: { email: email } })
+            history.push("/auth/linksent")
         } else {
             setLoading(false)
-            messageApi.open({
+            props.toast.open({
                 type: 'error',
                 content: response.message,
             });
@@ -56,7 +54,6 @@ function Register(props) {
 
                 </div>
                 <div className="right-container">
-                    {contextHolder}
                     <div>
                         <h2 className="font-semibold text-xl">Sign up</h2>
                         <h6>You'll be up & running in 2 minutes

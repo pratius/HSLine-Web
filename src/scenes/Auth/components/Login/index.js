@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./Login.scss"
 import AppLogo from "assets/images/logo.png"
+import { useDispatch } from "react-redux";
 
 import { MasterLayout } from "shared/MasterLayout";
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
-import { Button, Input, Space, Typography, message } from "antd";
+import { Button, Input, Space, Typography } from "antd";
 function Login(props) {
-    const [messageApi, contextHolder] = message.useMessage();
+    const dispatch = useDispatch()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -25,10 +26,18 @@ function Login(props) {
         }
         let response = await apiPost("http://localhost:3010/auth/login", payload)
         if (response.status) {
-            localStorage.setItem("token", response.data.accessToken)
-            history.push("/")
+            if (response.code === 1003) {
+                dispatch({ type: "UPDATE_USER_INFO", payload: { email: email } })
+                props.toast.open({
+                    type: 'success',
+                    content: response.message,
+                });
+                history.push("/auth/linksent")
+            } else {
+                localStorage.setItem("token", response.data.accessToken)
+            }
         } else {
-            messageApi.open({
+            props.toast.open({
                 type: 'error',
                 content: response.message,
             });
@@ -45,7 +54,6 @@ function Login(props) {
 
                 </div>
                 <div className="right-container">
-                    {contextHolder}
 
                     <div>
                         <h2 className="font-semibold text-xl">Sign in</h2>

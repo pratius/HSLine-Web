@@ -8,7 +8,8 @@ export function apiRequest(request) {
       method: request.method,
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
       }
     };
 
