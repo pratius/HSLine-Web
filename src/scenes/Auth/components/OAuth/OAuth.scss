@@ -1,0 +1,64 @@
+.OAuth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background: #fafafa;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: center;
+
+    .app-logo {
+        position: absolute;
+        left: 32px;
+        top: 18px;
+        width: 3rem;
+    }
+
+    .login-container {
+        width: 100%;
+        background: white;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 8px;
+        height: 640px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+
+        @media (max-width:480px) {
+            width: 100%;
+
+            .left-container {
+                display: none;
+            }
+
+            .right-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width:960px) {
+            width: 100%;
+
+            .left-container {
+                display: none;
+            }
+
+            .right-container {
+                width: 100%;
+            }
+        }
+
+        @media (min-width:1025px) {
+            max-width: 900px;
+        }
+
+
+
+    }
+
+
+}

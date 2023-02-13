@@ -1,6 +1,7 @@
 import { Auth } from "./";
 import LinkSent from "./components/LinkSent";
 import Login from "./components/Login";
+import OAuth from "./components/OAuth";
 import ProfileSetup from "./components/ProfileSetup";
 import Register from "./components/Register";
 import Verify from "./components/Verify";
@@ -36,6 +37,20 @@ export default {
       component: ProfileSetup,
       exact: true,
       isProtected: true
+    },
+    {
+      path: "/auth/google_oauth_redirect",
+      component: OAuth,
+      exact: true,
+      isProtected: true,
+      auth_provider: "google"
+    },
+    {
+      path: "/auth/fecebook_oauth_redirect",
+      component: OAuth,
+      exact: true,
+      isProtected: true,
+      auth_provider: "facebook"
     }
   ]
 };

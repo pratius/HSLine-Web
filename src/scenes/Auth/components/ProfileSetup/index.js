@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProfileSetup.scss"
 import AppLogo from "assets/images/logo.png"
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
 import { MasterLayout } from "shared/MasterLayout";
 import { history } from "Store";
@@ -20,6 +20,13 @@ function ProfileSetup(props) {
     const handleNavigate = () => {
         history.push("/auth/register")
     }
+    useEffect(() => {
+        if (props.userInfo) {
+            setFirstName(props.userInfo?.first_name || "")
+            setLastName(props.userInfo?.last_name || "")
+
+        }
+    }, [props.userInfo])
 
     const handleCreateProfile = async () => {
         setLoading(true)
@@ -63,19 +70,19 @@ function ProfileSetup(props) {
                     </div>
                     <div className="forms">
                         <div className="input-element">
-                            <Input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+                            <Input placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         </div>
                         <div className="input-element">
-                            <Input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+                            <Input placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </div>
                         <div className="input-element">
-                            <Input placeholder="Mobile" onChange={(e) => setMobile(e.target.value)} />
+                            <Input placeholder="Mobile" value={mobile} onChange={(e) => setMobile(e.target.value)} />
                         </div>
                         <div className="input-element">
-                            <Input placeholder="Company Name" onChange={(e) => setCompanyName(e.target.value)} />
+                            <Input placeholder="Company Name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
                         </div>
                         <div className="input-element">
-                            <Input placeholder="Company Website" onChange={(e) => setCompanyWebsite(e.target.value)} />
+                            <Input placeholder="Company Website" value={companyWebsite} onChange={(e) => setCompanyWebsite(e.target.value)} />
                         </div>
                         {/* <div className="input-element">
                             <Select
@@ -106,4 +113,10 @@ function ProfileSetup(props) {
     )
 }
 
-export default ProfileSetup
+const mapStateToProps = state => {
+    return { userInfo: state.userInfo };
+};
+export default connect(
+    mapStateToProps,
+)(ProfileSetup);
+

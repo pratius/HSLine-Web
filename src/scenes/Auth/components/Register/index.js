@@ -7,12 +7,17 @@ import { useDispatch } from "react-redux";
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
 import { Button, Input, Space, Typography } from "antd";
+import { useLocation } from "react-router-dom";
+import { getGoogleUrl } from "utility/OAuth/getGoogleURL";
+import { Link } from "@mui/material";
+import { getFacebookURL } from "utility/OAuth/getFacebookURL";
 function Register(props) {
     const dispatch = useDispatch()
 
+    const location = useLocation();
+    let from = ((location.state)?.from?.pathname) || '/';
 
     const [name, setName] = useState("")
-
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [isLoading, setLoading] = useState(false)
@@ -76,8 +81,16 @@ function Register(props) {
                         </div>
                         <p className="text-center text-gray-600 text-sm my-4">OR</p>
                         <div className="flex justify-center mb-4">
-                            <img className="w-7 h-7 mr-4 cursor-pointer hover:scale-110 duration-300" src="https://www.pngitem.com/pimgs/m/107-1071787_google-brand-black-google-logo-vector-hd-png.png" alt="OAuthLogo" />
-                            <img className="w-7 h-7 cursor-pointer hover:scale-110 duration-300" src="https://freepngimg.com/download/facebook/141094-logo-circle-facebook-png-free-photo.png" alt="OAuthLogo" />
+                            <Link href={getGoogleUrl(from)} >
+                                {/* {getGoogleUrl(from)} */}
+                                <img className="w-7 h-7 mr-4 cursor-pointer hover:scale-110 duration-300" on src="https://www.pngitem.com/pimgs/m/107-1071787_google-brand-black-google-logo-vector-hd-png.png" alt="OAuthLogo" />
+
+                            </Link>
+                            <Link href={getFacebookURL(from)}>
+                                <img className="w-7 h-7 cursor-pointer hover:scale-110 duration-300" src="https://freepngimg.com/download/facebook/141094-logo-circle-facebook-png-free-photo.png" alt="OAuthLogo" />
+
+                            </Link>
+
 
 
 
