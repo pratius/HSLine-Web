@@ -10,7 +10,6 @@ import { Button, Input, Space, Typography } from "antd";
 import { useLocation } from "react-router-dom";
 import { getGoogleUrl } from "utility/OAuth/getGoogleURL";
 import { Link } from "@mui/material";
-import { getFacebookURL } from "utility/OAuth/getFacebookURL";
 function Register(props) {
     const dispatch = useDispatch()
 
@@ -86,10 +85,7 @@ function Register(props) {
                                 <img className="w-7 h-7 mr-4 cursor-pointer hover:scale-110 duration-300" on src="https://www.pngitem.com/pimgs/m/107-1071787_google-brand-black-google-logo-vector-hd-png.png" alt="OAuthLogo" />
 
                             </Link>
-                            <Link href={getFacebookURL(from)}>
-                                <img className="w-7 h-7 cursor-pointer hover:scale-110 duration-300" src="https://freepngimg.com/download/facebook/141094-logo-circle-facebook-png-free-photo.png" alt="OAuthLogo" />
 
-                            </Link>
 
 
 
