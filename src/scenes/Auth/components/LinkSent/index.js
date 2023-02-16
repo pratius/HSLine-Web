@@ -9,6 +9,7 @@ import { Button } from "antd";
 import { CircularProgress } from "@mui/material";
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import { connect } from "react-redux";
+import { API_ENDPOINT_ACCOUNT_RESEND_LINK } from "scenes/Auth/auth.constants";
 
 function LinkSent(props) {
     const [isLoading, setLoading] = useState(false)
@@ -29,7 +30,7 @@ function LinkSent(props) {
         let payload = {
             email: props.userInfo.email,
         }
-        let response = await apiPost("http://localhost:3010/auth/resendlink", payload)
+        let response = await apiPost(API_ENDPOINT_ACCOUNT_RESEND_LINK, payload)
         if (response.status) {
             props.toast.open({
                 type: 'success',

@@ -7,6 +7,7 @@ import { MasterLayout } from "shared/MasterLayout";
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
 import { Button, Input, Select, Space, Typography } from "antd";
+import { API_ENDPOINT_PROFILE_CREATE } from "scenes/Auth/auth.constants";
 function ProfileSetup(props) {
     const dispatch = useDispatch()
     const [firstName, setFirstName] = useState("")
@@ -37,7 +38,7 @@ function ProfileSetup(props) {
             "company": companyName,
             "company_website": companyWebsite,
         }
-        let response = await apiPost("http://localhost:3010/profile/create", payload)
+        let response = await apiPost(API_ENDPOINT_PROFILE_CREATE, payload)
         if (response.status) {
             props.toast.open({
                 type: 'success',

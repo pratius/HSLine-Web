@@ -7,6 +7,7 @@ import { MasterLayout } from "shared/MasterLayout";
 import { history } from "Store";
 import { apiPost } from "services/apiServices";
 import { Button, Input, Space, Typography } from "antd";
+import { API_ENDPOINT_LOGIN } from "scenes/Auth/auth.constants";
 function Login(props) {
     const dispatch = useDispatch()
 
@@ -24,7 +25,7 @@ function Login(props) {
             email: email,
             password: password
         }
-        let response = await apiPost("http://localhost:3010/auth/login", payload)
+        let response = await apiPost(API_ENDPOINT_LOGIN, payload)
         if (response.status) {
             if (response.code === 1003) {
                 dispatch({ type: "UPDATE_USER_INFO", payload: { email: email } })

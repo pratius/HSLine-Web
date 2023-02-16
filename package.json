@@ -20,12 +20,14 @@
     "antd": "^5.1.6",
     "axios": "^1.2.1",
     "connected-react-router": "^6.9.3",
+    "env-cmd": "^10.1.0",
     "fetch-intercept": "^2.4.0",
     "history": "^4.10.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-grid-carousel": "^1.0.1",
+    "react-intl": "^6.2.8",
     "react-material-ui-carousel": "^3.4.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.2.0",
@@ -38,7 +40,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f prod.env react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

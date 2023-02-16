@@ -1,8 +1,24 @@
-import React from 'react';
+import { Skeleton } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { apiGet } from 'services/apiServices';
 
 
 import CountryIndexCard from 'shared/CountryIndexCard';
+import { API_ENDPOINT_OPENSTATS_TOP_COUNTRIES } from '../landing.constants';
 export default function Hero(offset) {
+    const [topCountries, setTopCountries] = useState([])
+    const [isLoading, setLoading] = useState(true)
+
+    useEffect(() => {
+        fetchTopCountries()
+    }, [])
+    const fetchTopCountries = async () => {
+        setLoading(true)
+        const response = await apiGet(API_ENDPOINT_OPENSTATS_TOP_COUNTRIES);
+        setTopCountries(response.data);
+        setLoading(false)
+
+    }
     const countryData = [
         {
             name: "United States",
@@ -52,7 +68,11 @@ export default function Hero(offset) {
                                 IMPORTS
                             </h5>
                             <div className='flex flex-col sm:flex-wrap sm:flex-row w-full'>
-                                {countryData.map((country, key) => {
+                                {isLoading ? new Array(4).fill(null).map((item, key) => {
+                                    return (
+                                        <Skeleton className='rounded w-full  sm:w-2/5 lg:w-64 h-32 p-4  mb-4 sm:mb-0 sm:m-2 sm:mx-3 ' variant="rectangular" />
+                                    )
+                                }) : (topCountries.importers || []).map((country, key) => {
                                     return (
                                         <CountryIndexCard key={key} data={country} />
 
@@ -68,7 +88,11 @@ export default function Hero(offset) {
                                 EXPORTS
                             </h5>
                             <div className='flex flex-col sm:flex-wrap sm:flex-row w-full'>
-                                {countryData.reverse().map((country, key) => {
+                                {isLoading ? new Array(4).fill(null).map((item, key) => {
+                                    return (
+                                        <Skeleton className='rounded w-full  sm:w-2/5 lg:w-64 h-32 p-4  mb-4 sm:mb-0 sm:m-2 sm:mx-3 ' variant="rectangular" />
+                                    )
+                                }) : (topCountries.exporters || []).map((country, key) => {
                                     return (
                                         <CountryIndexCard key={key} data={country} />
 

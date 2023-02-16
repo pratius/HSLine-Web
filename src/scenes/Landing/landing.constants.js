@@ -1,0 +1,1 @@
+export const API_ENDPOINT_OPENSTATS_TOP_COUNTRIES = `${process.env.REACT_APP_API_URL}openstats/topcountries`

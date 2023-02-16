@@ -7,6 +7,7 @@ import { history } from "Store";
 import { apiPost } from "services/apiServices";
 import { Button } from "antd";
 import { CircularProgress } from "@mui/material";
+import { API_ENDPOINT_ACCOUNT_VERIFY } from "scenes/Auth/auth.constants";
 function Verify(props) {
     const [isLoading, setLoading] = useState(true)
 
@@ -25,7 +26,7 @@ function Verify(props) {
         let payload = {
             verification_code: props.match.params.verification_code
         }
-        let response = await apiPost("http://localhost:3010/auth/verify", payload)
+        let response = await apiPost(API_ENDPOINT_ACCOUNT_VERIFY, payload)
         if (response.status) {
             props.toast.open({
                 type: 'success',

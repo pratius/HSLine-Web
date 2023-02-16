@@ -8,6 +8,7 @@ import { history } from "Store";
 import { apiPost } from "services/apiServices";
 import { Button } from "antd";
 import { CircularProgress } from "@mui/material";
+import { API_ENDPOINT_CONNECT_OAUTH_ACCOUNT } from "scenes/Auth/auth.constants";
 function OAuth(props) {
     console.log("auth proivder props:", props)
     const dispatch = useDispatch()
@@ -35,7 +36,7 @@ function OAuth(props) {
             code: code,
             provider: provider
         }
-        let response = await apiPost("http://localhost:3010/auth/oauth_connect", payload)
+        let response = await apiPost(API_ENDPOINT_CONNECT_OAUTH_ACCOUNT, payload)
         if (response.status) {
             props.toast.open({
                 type: 'success',

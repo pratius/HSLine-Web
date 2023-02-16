@@ -10,6 +10,7 @@ import { Button, Input, Space, Typography } from "antd";
 import { useLocation } from "react-router-dom";
 import { getGoogleUrl } from "utility/OAuth/getGoogleURL";
 import { Link } from "@mui/material";
+import { API_ENDPOINT_REGISTER } from "scenes/Auth/auth.constants";
 function Register(props) {
     const dispatch = useDispatch()
 
@@ -27,7 +28,7 @@ function Register(props) {
             email: email,
             password: password
         }
-        let response = await apiPost("http://localhost:3010/auth/register", payload)
+        let response = await apiPost(API_ENDPOINT_REGISTER, payload)
         if (response.status) {
             props.toast.open({
                 type: 'success',
