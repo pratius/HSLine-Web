@@ -27,6 +27,7 @@ function userInfo(state = null, action) {
 
 
 
+
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
   currentCountry: currentCountry,

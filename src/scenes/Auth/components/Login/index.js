@@ -8,6 +8,7 @@ import { history } from "Store";
 import { apiPost } from "services/apiServices";
 import { Button, Input, Space, Typography } from "antd";
 import { API_ENDPOINT_LOGIN } from "scenes/Auth/auth.constants";
+import { Dialog } from "@mui/material";
 function Login(props) {
     const dispatch = useDispatch()
 
@@ -36,6 +37,8 @@ function Login(props) {
                 history.push("/auth/linksent")
             } else {
                 localStorage.setItem("token", response.data.accessToken)
+                history.push("/")
+
             }
         } else {
             props.toast.open({
@@ -86,6 +89,10 @@ function Login(props) {
 
 
                     </div>
+
+
+
+
 
                 </div>
             </div>

@@ -2,6 +2,9 @@ import { Button } from "@mui/material"
 import React from "react"
 import Premium from "assets/images/premium.svg"
 export default function EmptyState(props) {
+    const isLoggedIn = () => {
+        return localStorage.getItem("token") !== null ? true : false
+    }
     return (
         <div className={`flex ${props.variant === "horizontal" ? 'flex-col sm:flex-row ' : 'flex-col'} w-full h-full justify-center items-center`}>
             <img src={Premium} className="w-24" alt="EmptyStageImage" />
@@ -12,7 +15,7 @@ export default function EmptyState(props) {
 
                 </h5>
 
-                <Button variant="contained" style={{ backgroundColor: 'black', textTransform: 'none' }}>Sign Up</Button>
+                <Button variant="contained" style={{ backgroundColor: 'black', textTransform: 'none' }}>{isLoggedIn() ? "Update Required Details" : "Sign Up"}</Button>
             </div>
 
         </div>

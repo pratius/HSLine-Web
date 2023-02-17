@@ -1,24 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss"
 import AppLogo from "assets/images/logo.png"
 import { SITE_STATIC_DATA } from "helpers/constants"
 import { history } from "Store";
-import { Button, Hidden } from "@mui/material";
+import { Avatar, Button, Dialog, Hidden, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material";
 import SearchBox from "shared/SearchBox";
 import { Select, Space } from "antd";
 import Countries from "./countries.json"
 import { useDispatch } from "react-redux";
 import { Box } from "@mui/system";
 import MobileMenu from "shared/MobileMenu";
+import Settings from "shared/Settings";
 function Header(props) {
     const [selectedCountry, setSelectedCountry] = useState(0)
+    const [isLoggedIn, setLoggedIn] = useState(false)
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+    const [open, setOpen] = React.useState(false);
+
     const { Option } = Select;
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        let token = localStorage.getItem("token");
+        if (token === null) {
+            setLoggedIn(false)
+        } else {
+            setLoggedIn(true)
+        }
+    }, [])
 
     const handleChange = (value) => {
         setSelectedCountry(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
         dispatch({ type: "CHANGE_CURRENT_COUNTRY", payload: { label: Countries[value].name, value: Countries[value].code } })
 
+    };
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
+
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
     };
 
     return (
@@ -92,9 +124,39 @@ function Header(props) {
                                 ))}
 
                             </div>
-                            <div className="ml-12">
-                                <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} onClick={() => history.push("/auth/login")}>Get Started</Button>
-                            </div>
+                            {isLoggedIn ?
+                                <Box sx={{ flexGrow: 0, marginLeft: '1rem' }}>
+                                    <Tooltip title="Open settings">
+                                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                            <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/2.jpg" />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Menu
+                                        sx={{ mt: '45px' }}
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                    >
+                                        {settings.map((setting) => (
+                                            <MenuItem key={setting} onClick={() => setOpen(true)}>
+                                                <Typography textAlign="center">{setting}</Typography>
+                                            </MenuItem>
+                                        ))}
+                                    </Menu>
+                                </Box> :
+                                <div className="ml-12">
+                                    <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} onClick={() => history.push("/auth/login")}>Get Started</Button>
+                                </div>}
                         </div>
                     </Box>
                     <Box sx={{ display: { xl: 'none', xs: 'none', sm: 'block' } }}>
@@ -102,6 +164,14 @@ function Header(props) {
                     </Box>
 
 
+                    <Dialog
+                        fullWidth={true}
+                        maxWidth={"md"}
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        <Settings />
+                    </Dialog>
 
                 </div>
             </div>

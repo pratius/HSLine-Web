@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { message } from "antd";
+import { history } from "Store";
 
 
 
@@ -8,7 +9,13 @@ import { message } from "antd";
 
 function Auth(props) {
   const [messageApi, contextHolder] = message.useMessage();
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token !== null) {
+      history.push("/")
 
+    }
+  }, [])
   return (
     // <Row>
     //   <Col span={24} xl={8}>
