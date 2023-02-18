@@ -10,7 +10,7 @@ export default function Hero(offset) {
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetchTopCountries()
+        // fetchTopCountries()
     }, [])
     const fetchTopCountries = async () => {
         setLoading(true)

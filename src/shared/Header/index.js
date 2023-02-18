@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { Box } from "@mui/system";
 import MobileMenu from "shared/MobileMenu";
 import Settings from "shared/Settings";
+import { API_ENDPOINT_PROFILE_INFO_FETCH } from "scenes/Auth/auth.constants";
+import { apiGet } from "services/apiServices";
 function Header(props) {
     const [selectedCountry, setSelectedCountry] = useState(0)
     const [isLoggedIn, setLoggedIn] = useState(false)
@@ -22,6 +24,7 @@ function Header(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        getUserInfo()
         let token = localStorage.getItem("token");
         if (token === null) {
             setLoggedIn(false)
@@ -29,6 +32,12 @@ function Header(props) {
             setLoggedIn(true)
         }
     }, [])
+
+    const getUserInfo = async () => {
+        let response = await apiGet(API_ENDPOINT_PROFILE_INFO_FETCH);
+        dispatch({ type: "UPDATE_USER_INFO", payload: response.data })
+
+    }
 
     const handleChange = (value) => {
         setSelectedCountry(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
@@ -52,6 +61,12 @@ function Header(props) {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const logout = () => {
+        localStorage.clear();
+        history.push("/");
+        window.location.reload()
+    }
 
     return (
         <header className="bg-white generic-card-shadow fixed top-0 left-0 right-0 h-32 sm:h-16 z-10">
@@ -147,11 +162,14 @@ function Header(props) {
                                         open={Boolean(anchorElUser)}
                                         onClose={handleCloseUserMenu}
                                     >
-                                        {settings.map((setting) => (
-                                            <MenuItem key={setting} onClick={() => setOpen(true)}>
-                                                <Typography textAlign="center">{setting}</Typography>
-                                            </MenuItem>
-                                        ))}
+                                        <MenuItem onClick={() => setOpen(true)}>
+                                            <Typography textAlign="center">Settings</Typography>
+                                        </MenuItem>
+
+                                        <MenuItem onClick={logout}>
+                                            <Typography textAlign="center">Logout</Typography>
+                                        </MenuItem>
+
                                     </Menu>
                                 </Box> :
                                 <div className="ml-12">

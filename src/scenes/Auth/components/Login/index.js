@@ -35,7 +35,16 @@ function Login(props) {
                     content: response.message,
                 });
                 history.push("/auth/linksent")
-            } else {
+            } else if (response.code === 3005) {
+                props.toast.open({
+                    type: 'error',
+                    content: response.message,
+                });
+                localStorage.setItem("token", response.data.accessToken)
+                history.push("/auth/profile/setup")
+
+            }
+            else {
                 localStorage.setItem("token", response.data.accessToken)
                 history.push("/")
 

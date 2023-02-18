@@ -6,15 +6,32 @@ import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import CorporateFareRoundedIcon from '@mui/icons-material/CorporateFareRounded';
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import { Input } from "antd";
+import { Button, Input, message } from "antd";
+import UpdateBasic from "./components/UpdateBasic";
+import UpdateCompany from "./components/UpdateCompany";
+import { connect } from "react-redux";
 function Settings(props) {
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
+    const [messageApi, contextHolder] = message.useMessage();
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
     };
+    const renderContent = () => {
+        switch (selectedIndex) {
+            case 0:
+                return <UpdateBasic data={props.userInfo} toast={messageApi} />
+            case 1:
+                return <UpdateCompany data={props.userInfo} toast={messageApi} />
+            default:
+                return <UpdateBasic data={props.userInfo} toast={messageApi} />
+
+        }
+    }
     return (
         <div className="flex w-full flex-col">
+            {contextHolder}
+
             <div className="w-full p-3">
                 <h2 className="text-2xl font-semibold text-gray-800" style={{ lineHeight: 1 }}>Settings</h2>
                 <p className="text-sm text-gray-700 mt-1" style={{ lineHeight: 1 }}>Changes that may affect your workspace and it's behaviour</p>
@@ -68,20 +85,8 @@ function Settings(props) {
 
                 </div>
                 <div className="w-full p-4 flex flex-wrap">
-                    <div className="input-element w-1/2">
-                        <Input placeholder="First Name" style={{ height: '2.4rem', width: '95%' }} />
-                    </div>
-                    <div className="input-element w-1/2">
-                        <Input placeholder="Last Name" style={{ height: '2.4rem', width: '95%' }} />
-                    </div>
+                    {renderContent()}
 
-                    <div className="input-element w-1/2">
-                        <Input placeholder="Mobile" style={{ height: '2.4rem', width: '95%' }} />
-                    </div>
-
-                    <div className="input-element w-1/2">
-                        <Input placeholder="Company" style={{ height: '2.4rem', width: '95%' }} />
-                    </div>
                 </div>
             </div>
 
@@ -91,4 +96,10 @@ function Settings(props) {
     )
 }
 
-export default Settings
+const mapStateToProps = state => {
+    return { userInfo: state.userInfo };
+};
+export default connect(
+    mapStateToProps,
+)(Settings);
+
