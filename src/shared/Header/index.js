@@ -14,7 +14,7 @@ import Settings from "shared/Settings";
 import { API_ENDPOINT_PROFILE_INFO_FETCH } from "scenes/Auth/auth.constants";
 import { apiGet } from "services/apiServices";
 function Header(props) {
-    const [selectedCountry, setSelectedCountry] = useState(0)
+    const [selectedCountry, setSelectedCountry] = useState(2)
     const [isLoggedIn, setLoggedIn] = useState(false)
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -24,6 +24,8 @@ function Header(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        dispatch({ type: "CHANGE_CURRENT_COUNTRY", payload: { label: Countries[2].name, value: Countries[2].code } })
+
         getUserInfo()
         let token = localStorage.getItem("token");
         if (token === null) {
@@ -68,6 +70,11 @@ function Header(props) {
         window.location.reload()
     }
 
+    const isActiveMenu = (path) => {
+        let url = window.location.href;
+        if (url.includes(path)) return true
+        return false
+    }
     return (
         <header className="bg-white generic-card-shadow fixed top-0 left-0 right-0 h-32 sm:h-16 z-10">
             <div className="mx-auto p-3 px-8 ">
@@ -124,7 +131,7 @@ function Header(props) {
 
                                 {SITE_STATIC_DATA.primaryMenu.map((menu, index) => (
                                     <div onClick={() => history.push(menu.path)} className="mx-3 flex items-center cursor-pointer" >
-                                        <h6 className="font-sm text-gray-400 ">
+                                        <h6 className={"font-sm " + (isActiveMenu(menu.path) ? " text-gray-800 font-bold " : "text-gray-400")}>
                                             {menu.title}
                                         </h6>
                                     </div>

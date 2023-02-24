@@ -97,10 +97,13 @@ function CountryInfo(props) {
                             </h3>
                             <div className='flex'>
                                 <div className='mr-3'>
-                                    <PopMenu label="Export Year" items={["2020", "EXPORTS"]} />
+                                    <PopMenu label="Export Year" items={["2020", "2021", "2022", "2023"]} />
                                 </div>
                                 <div className='mr-3'>
-                                    <PopMenu label="Import Year" items={["2020", "EXPORTS"]} />
+                                    <PopMenu label="Export Month" items={["Jan", "Feb", "Mar", "Apr", "May"]} />
+                                </div>
+                                <div className='mr-3'>
+                                    <PopMenu label="Product" items={["All", "Fruits & Vegitable", "Meat", "Seafood", "Pulses"]} />
                                 </div>
 
                             </div>
@@ -109,7 +112,7 @@ function CountryInfo(props) {
                         </div>
                     </div>
 
-
+                    {/* 
                     <div className='flex flex-col mt-10 '>
 
 
@@ -128,7 +131,7 @@ function CountryInfo(props) {
 
                             <HeatMap />
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='flex flex-col mt-10 '>
 
