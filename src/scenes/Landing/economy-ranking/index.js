@@ -14,7 +14,7 @@ export default function EconomyRanking(offset) {
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
 
             <div className="relative overflow-hidden hero-black" >
-                <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
+                <div className="mx-auto p-6 md:pt-12 sm:p-16 h-full flex flex-col ">
                     <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-2xl ">
                         Economic Complexity Rankings
 
@@ -22,7 +22,7 @@ export default function EconomyRanking(offset) {
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
                         As a professional, it is important to be aware of which countries and regions are expected to experience growth in international trade in the future. Our website provides the information you need to make informed decisions about which markets to target.<br /> Through careful research and analysis, we can accurately predict which countries and regions are predicted to experience growth in the near future. By taking advantage of this valuable resource, you can ensure your company remains competitive in the global marketplace.
                     </p>
-                    <div className='flex flex-col sm:flex-row items-center justify-between mt-4'>
+                    <div className='flex flex-col sm:flex-row items-center justify-between mt-4 md:p-4'>
                         <div className="flex flex-col items-center cursor-pointer mb-8 sm:mb-0">
                             <img src={USA} alt="countryMap" className='w-72 h-72 object-contain hover:scale-90 duration-300' />
                             <h5 className='text-xl text-gray-800 mt-3'>
@@ -45,7 +45,7 @@ export default function EconomyRanking(offset) {
                         </div>
                     </div>
 
-                    <div className='flex flex-col sm:flex-row items-center justify-between mt-12 '>
+                    <div className='flex flex-col sm:flex-row items-center justify-between mt-12 md:p-4'>
                         <div className="flex flex-col items-center cursor-pointer mb-8 sm:mb-0">
                             <img src={Sweden} alt="countryMap" className='w-72 h-72 object-contain hover:scale-90 duration-300' />
                             <h5 className='text-xl text-gray-800 mt-3'>

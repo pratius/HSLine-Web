@@ -7,18 +7,18 @@ export default function LandingTradle(offset) {
     return (
         <div>
             <div className="relative overflow-hidden">
-                <div className="mx-auto p-6 md:pt-16 sm:p-8">
+                <div className="mx-auto p-6 md:pt-16 sm:p-16">
                     <div className="flex flex-col	 md:flex md:flex-row p-4 justify-between items-center">
-                        <div className="self-center    md:block  md:mr-10  ">
+                        <div className="self-center   flex w-full sm:w-1/2  md:mr-10  ">
                             <img
                                 className="w-auto h-auto"
                                 src={"https://cdn.thetradingpit.com/pages/platforms/laptop-screen-atas-trade.png"}
                                 alt="illustration"
-                                style={{ width: '30rem' }}
+                                style={{ width: '32rem' }}
 
                             />
                         </div>
-                        <div className="pt-4 md:pt-10 lg:pt-0 max-w-sm  ">
+                        <div className="pt-4 md:pt-10 lg:pt-0  w-full sm:w-1/2 ">
                             <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-3xl ">
                                 TAKE A INSIGHTS OF TRADLE WITH HSLINES
                             </h1>

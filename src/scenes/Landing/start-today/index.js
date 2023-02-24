@@ -7,10 +7,10 @@ export default function StartToday(offset) {
     return (
         <div>
             <div className="relative overflow-hidden">
-                <div className=" mx-auto p-6 md:pt-16 sm:p-8">
+                <div className=" mx-auto p-6 md:pt-16 sm:p-16">
                     <div className="flex flex-col	 md:flex md:flex-row p-4 justify-between items-center">
 
-                        <div className="pt-4 md:pt-10 lg:pt-0 max-w-sm order-2 sm:order-1">
+                        <div className="pt-4 md:pt-10 lg:pt-0 w-full sm:w-1/2 order-2 sm:order-1">
                             <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-3xl ">
                                 GET MORE WITH HSLINES
                             </h1>
@@ -20,12 +20,12 @@ export default function StartToday(offset) {
                                 <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}>Explore More</Button>
                             </div>
                         </div>
-                        <div className="self-center    md:block  md:mr-10 order-1 sm:order-2">
+                        <div className="self-center flex  w-full sm:w-1/2 md:mr-10 order-1 sm:order-2 justify-end    ">
                             <img
                                 className="w-auto h-auto"
                                 src={"https://yourrobotrader.com/wp-content/uploads/2022/09/laptop-mockup.webp"}
                                 alt="illustration"
-                                style={{ width: '30rem' }}
+                                style={{ width: '32rem' }}
 
                             />
                         </div>
