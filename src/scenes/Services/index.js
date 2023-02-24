@@ -13,7 +13,7 @@ export default function Services() {
             <div className='relative'>
                 <div className="relative overflow-hidden hero-black" >
 
-                    <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
+                    <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
                         <h1 className="mb-2 tracking-tight leading-8 text-center font-bold text-2xl sm:text-2xl md:text-2xl lg:text-5xl text-gray-800 ">
                             Our Services
                         </h1>

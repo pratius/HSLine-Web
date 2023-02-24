@@ -51,7 +51,7 @@ export default function ProductLanding(offset) {
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
 
             <div className="relative overflow-hidden hero-black" >
-                <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
+                <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <div className='mb-12'>
                         <h3 className='font-semibold text-large text-gray-800 mb-4'>Category</h3>
                         <ProductCategory />

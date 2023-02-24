@@ -10,7 +10,7 @@ import LandingTradle from "./landing-tradle"
 import StartToday from "./start-today"
 export default function Landing() {
     return (
-        <div className="flex flex-col min-h-screenpt-4 mt-36 sm:mt-16">
+        <div className="flex flex-col min-h-screen pt-4 mt-36 sm:mt-16">
 
             <Header />
             <Hero />

@@ -7,7 +7,7 @@ export default function LandingTradle(offset) {
     return (
         <div>
             <div className="relative overflow-hidden">
-                <div className="max-w-screen-xl mx-auto p-6 md:pt-16 sm:p-8">
+                <div className="mx-auto p-6 md:pt-16 sm:p-8">
                     <div className="flex flex-col	 md:flex md:flex-row p-4 justify-between items-center">
                         <div className="self-center    md:block  md:mr-10  ">
                             <img

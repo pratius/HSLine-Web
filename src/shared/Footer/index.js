@@ -9,7 +9,7 @@ function Footer(props) {
     return (
         <div className="bg-gray-800 text-white p-4">
             {/* Top Footer */}
-            <div className="max-w-screen-xl mx-auto ">
+            <div className="mx-auto ">
                 <div className="flex flex-wrap self-center justify-between	">
                     <div className="flex flex-wrap">
                         <div className="flex-initial text-center mr-2 sm: pl-0 pb-2">

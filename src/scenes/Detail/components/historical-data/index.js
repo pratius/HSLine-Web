@@ -10,7 +10,7 @@ export default function HistoricalData(offset) {
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
 
             <div className="relative overflow-hidden hero-black" >
-                <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
+                <div className=" mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <h2 className='text-center font-bold text-4xl my-10 text-gray-800'>HISTORICAL DATA</h2>
                     <div className='flex flex-col lg:flex-row justify-between mt-4'>
                         <div className='flex flex-wrap lg:flex-row mb-6 lg:mb-0'>

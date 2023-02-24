@@ -14,7 +14,7 @@ export default function ProductDetail(offset) {
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
 
             <div className="relative overflow-hidden hero-black" >
-                <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
+                <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <div className='flex flex-row items-center '>
                         <img className='w-14 sm:w-20' src={"https://www.freeiconspng.com/uploads/download-apples-png-image-red-apple-fruit-10.png"} alt=" countryFlag" />
                         <h1 className='ml-3 text-3xl sm:text-5xl font-bold text-gray-800'>Fresh Apple</h1>

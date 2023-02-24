@@ -17,7 +17,7 @@ function CountryInfo(props) {
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
 
             <div className="relative overflow-hidden hero-black" >
-                <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
+                <div className=" mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <div className='flex flex-col sm:flex-row sm:items-center '>
                         <img className='w-24 sm:w-20' src={`https://www.countryflags.com/wp-content/uploads/${props.currentCountry.label.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt=" countryFlag" />
                         <h1 className='mt-3 sm:mt-0 sm:ml-3 text-4xl lg:text-5xl font-bold text-gray-800'>{props.currentCountry && props.currentCountry.label}</h1>

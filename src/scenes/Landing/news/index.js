@@ -33,7 +33,7 @@ export default function TradeNews(offset) {
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
 
             <div className="relative overflow-hidden hero-black" >
-                <div className="max-w-screen-xl mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
+                <div className=" mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
                     <h5 className='text-center sm:text-left font-xl text-gray-400 tracking-widest mb-2'>
                         TRADE NEWS
                     </h5>
