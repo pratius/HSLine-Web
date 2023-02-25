@@ -1,0 +1,1 @@
+export const API_ENDPOINT_PRO_STATS_ECONOMIC_COMPLEXITY = `${process.env.REACT_APP_API_URL}prostats/economic_complexity`

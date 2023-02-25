@@ -113,7 +113,7 @@ export default [
     },
     {
         id: "CHN",
-        value: 260808
+        value: -1.43
     },
     // {
     //   id: "CIV",

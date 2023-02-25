@@ -31,7 +31,7 @@ export default function Detail() {
             case 1:
                 return <LatestTrends />
             case 2:
-                return <HistoricalData />
+                return <EconomicComplexity />
             case 3:
                 return <ServiceTrade />
             case 4:

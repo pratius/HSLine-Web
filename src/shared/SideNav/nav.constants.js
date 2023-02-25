@@ -17,21 +17,21 @@ export const menuList = {
             key: "home",
             icon: <HomeRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
         },
-        {
-            name: "Latest Trend",
-            key: "latest_trend",
-            icon: <TrendingUpRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
-        },
+        // {
+        //     name: "Latest Trend",
+        //     key: "latest_trend",
+        //     icon: <TrendingUpRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+        // },
         {
             name: "Historical Data",
             key: "historical_trend",
             icon: <TravelExploreRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
         },
-        {
-            name: "Service Trade",
-            key: "historical_trend",
-            icon: <DirectionsBoatRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
-        },
+        // {
+        //     name: "Service Trade",
+        //     key: "historical_trend",
+        //     icon: <DirectionsBoatRoundedIcon className="text-gray-700 " style={{ fontSize: 22 }} />
+        // },
         {
             name: "Economic Complexity",
             key: "historical_trend",

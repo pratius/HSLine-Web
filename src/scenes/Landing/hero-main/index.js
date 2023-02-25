@@ -14,9 +14,13 @@ export default function Hero(offset) {
     }, [])
     const fetchTopCountries = async () => {
         setLoading(true)
-        const response = await apiGet(API_ENDPOINT_OPENSTATS_TOP_COUNTRIES);
-        setTopCountries(response.data);
+        try {
+            const response = await apiGet(API_ENDPOINT_OPENSTATS_TOP_COUNTRIES);
+            setTopCountries(response.data);
+        } catch (err) {
+        }
         setLoading(false)
+
 
     }
     const countryData = [

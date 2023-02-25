@@ -2,18 +2,18 @@ import { ResponsiveChoropleth } from '@nivo/geo'
 import data from "./data";
 import countries from "./world_countries.json";
 
-const getColor = ["#b6b6b6", "#000000"];
+const getColor = ["#c0392b", "#27ae60"];
 
-const GeoMap = () => (
+const GeoMap = (props) => (
     <ResponsiveChoropleth
-        data={data}
+        data={props.data}
         features={countries.features}
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
         colors={getColor}
         domain={[0, 1]}
         unknownColor="#b6b6b6"
         valueFormat=".2s"
-        projectionScale={130}
+        projectionScale={100}
         projectionTranslation={[0.5, 0.5]}
         projectionRotation={[0, 0, 0]}
         enableGraticule={false}
