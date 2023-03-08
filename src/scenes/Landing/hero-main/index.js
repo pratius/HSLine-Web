@@ -23,35 +23,7 @@ export default function Hero(offset) {
 
 
     }
-    const countryData = [
-        {
-            name: "United States",
-            flag: "https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png",
-            type: "profit",
-            data: Math.floor(Math.random() * 90 + 10)
-        },
-        {
-            name: "India",
-            flag: "https://www.countryflags.com/wp-content/uploads/india-flag-png-large.png",
-            type: "profit",
-            data: Math.floor(Math.random() * 90 + 10)
 
-        },
-        {
-            name: "Brazil",
-            flag: "https://www.countryflags.com/wp-content/uploads/brazil-flag-png-large.png",
-            type: "loss",
-            data: Math.floor(Math.random() * 90 + 10)
-
-        },
-        {
-            name: "Japan",
-            flag: "https://www.countryflags.com/wp-content/uploads/japan-flag-png-large.png",
-            type: "profit",
-            data: Math.floor(Math.random() * 90 + 10)
-
-        }
-    ]
 
     return (
         <div className='relative'>

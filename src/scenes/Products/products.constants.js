@@ -1,0 +1,1 @@
+export const API_ENDPOINT_PRODUCT_FETCH_CATEGORY = `${process.env.REACT_APP_API_URL}products/category`

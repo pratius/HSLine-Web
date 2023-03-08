@@ -1,9 +1,16 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Collapse, Drawer, List, ListItem, ListItemButton } from "@mui/material";
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import { apiPost } from "services/apiServices";
+import TreeView from '@mui/lab/TreeView';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import TreeItem from '@mui/lab/TreeItem';
 
-const drawerWidth = 200;
+import { API_ENDPOINT_PRODUCT_FETCH_CATEGORY } from "scenes/Products/products.constants";
+
+const drawerWidth = 260;
 
 
 
@@ -11,11 +18,73 @@ const drawerWidth = 200;
 
 export default function SideNav(props) {
     const [open, setOpen] = React.useState(false);
+    const [category, setCategory] = useState([])
 
-    const handleClick = () => {
-        setOpen(!open);
+    const payload = {
+        type: "main",
+        parentid: "1"
+    }
+    const handleClick = (menuItem) => {
+        if (menuItem.leaf === 0) {
+            fetchSubCategories(menuItem)
+        }
+        console.log("handle click")
     };
 
+
+    useEffect(() => {
+        fetchCategoryMain()
+    }, [])
+
+    const fetchCategoryMain = async () => {
+        const response = await apiPost(API_ENDPOINT_PRODUCT_FETCH_CATEGORY, payload)
+        setCategory(response.data)
+    }
+    const fetchSubCategories = async (menuItem) => {
+        const payload = {
+            type: menuItem.next_node,
+            parentid: menuItem.id
+        }
+        const response = await apiPost(API_ENDPOINT_PRODUCT_FETCH_CATEGORY, payload)
+        findAndSave(menuItem.id, response.data)
+    }
+
+    const findAndSave = (rootId, data) => {
+        let initialData = JSON.parse(JSON.stringify(category))
+        initialData
+            .forEach(
+                function iter(a) {
+                    if (a.id === rootId) {
+                        a.subMenu = data;
+                    }
+                    Array.isArray(a.subMenu) && a.subMenu.forEach(iter);
+                }
+            );
+        console.log("final data", initialData)
+        setCategory(initialData)
+    }
+
+
+    const getTreeItemsFromData = treeItems => {
+        return treeItems.map(treeItemData => {
+            let children = undefined;
+            if (treeItemData.subMenu && treeItemData.subMenu.length > 0) {
+                children = getTreeItemsFromData(treeItemData.subMenu);
+            }
+            return (
+                <TreeItem
+                    key={treeItemData.id}
+                    nodeId={treeItemData.id}
+                    label={<div className="flex items-center  p-2">
+                        {treeItemData.category_icon ? <img className="w-5 object-cover mr-2" src={treeItemData.category_icon} /> : null}
+                        <small className={treeItemData.leaf === 1 ? "font-semibold" : ""}>{treeItemData.category_name}</small>
+                    </div>}
+                    children={children}
+                    onClick={() => handleClick(treeItemData)}
+                />
+            );
+        });
+    };
     return (
         <Drawer
             variant="permanent"
@@ -26,49 +95,15 @@ export default function SideNav(props) {
             open
         >
 
-            <List>
-                {props.menuList.map((menu, index) => (
-                    <>
-                        <ListItem key={index} disablePadding>
-                            <ListItemButton onClick={() => menu.subMenu && menu.subMenu.length > 0 ? handleClick() : props.onChange(index)}>
+            <TreeView
+                aria-label="file system navigator"
+                defaultCollapseIcon={<ExpandMoreIcon />}
+                defaultExpandIcon={<ChevronRightIcon />}
+                sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+            >
+                {getTreeItemsFromData(category)}
 
-                                <div className="flex w-full align-center justify-between hover:text-gray-900 duration-300">
-                                    <div className="flex align-center">
-                                        {menu.icon}
-                                        <h5 className="ml-3 text-sm text-gray-700 hover:text-gray-900 duration-300">{menu.name}</h5>
-                                    </div>
-
-                                    {menu.subMenu && menu.subMenu.length > 0 ?
-                                        open ? <ExpandLess /> : <ExpandMore /> : null}
-                                </div>
-
-
-                            </ListItemButton>
-
-                        </ListItem>
-
-                        {
-                            menu.subMenu && menu.subMenu.length > 0 ?
-                                <Collapse in={open} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        {menu.subMenu.map((nestedMenu, nestIndex) => {
-                                            return (
-                                                <ListItemButton key={nestIndex} sx={{ pl: 4 }}>
-                                                    <div className="flex align-center hover:text-gray-900 duration-300">
-                                                        {nestedMenu.icon && nestedMenu.icon}
-                                                        <h5 className="ml-3 text-sm text-gray-700 hover:text-gray-900 duration-300">{nestedMenu.name}</h5>
-                                                    </div>
-                                                </ListItemButton>
-                                            )
-                                        })}
-
-                                    </List>
-                                </Collapse> : null
-                        }
-                    </>
-
-                ))}
-            </List>
+            </TreeView>
 
 
         </Drawer >

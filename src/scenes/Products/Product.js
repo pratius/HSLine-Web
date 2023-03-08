@@ -19,7 +19,7 @@ export default function Products(props) {
             <SideNav menuList={menuList['products']} onChange={setActiveSection} />
 
             <Header />
-            <div className="flex flex-col justify-center sm:ml-52" >
+            <div className="flex flex-col justify-center sm:ml-64" >
                 <Box
                     sx={{ display: { xl: 'none', xs: 'block', sm: 'none' } }}
                 >

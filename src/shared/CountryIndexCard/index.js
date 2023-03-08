@@ -2,7 +2,8 @@ import { compact } from 'lodash';
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import { history } from "Store";
-
+import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
+import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 export default function CountryIndexCard(props) {
     const textColor = {
         loss: "#EE5253",
@@ -22,7 +23,7 @@ export default function CountryIndexCard(props) {
                     currency={"USD"} notation={"compact"} />
             </h1>
             <h6 className='text-right font-semibold' style={{ color: props.data.eci_value > 0 ? "#10AC84" : "#EE5253" }} suppressHydrationWarning>
-                {props.data.eci_value > 0 ? "+" : ""}{props.data.eci_value.toFixed(2)}% YoY
+                {props.data.eci_value > 0 ? <ArrowDropUpRoundedIcon style={{ color: "#10AC84" }} /> : <ArrowDropDownRoundedIcon style={{ color: "#EE5253" }} />}{props.data.eci_value.toFixed(2).replaceAll("-", '')}%
             </h6>
         </div>
     )
