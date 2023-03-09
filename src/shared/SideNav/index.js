@@ -60,7 +60,6 @@ export default function SideNav(props) {
                     Array.isArray(a.subMenu) && a.subMenu.forEach(iter);
                 }
             );
-        console.log("final data", initialData)
         setCategory(initialData)
     }
 
@@ -74,6 +73,7 @@ export default function SideNav(props) {
             return (
                 <TreeItem
                     key={treeItemData.id}
+                    id={"treeitem" + treeItemData.id}
                     nodeId={treeItemData.id}
                     label={<div className="flex items-center  p-2">
                         {treeItemData.category_icon ? <img className="w-5 object-cover mr-2" src={treeItemData.category_icon} /> : null}

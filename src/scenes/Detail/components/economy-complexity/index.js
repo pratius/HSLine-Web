@@ -17,7 +17,12 @@ export default function EconomicComplexity(offset) {
     const fetchECI = async () => {
         try {
             let response = await apiGet(API_ENDPOINT_PRO_STATS_ECONOMIC_COMPLEXITY)
-            setComplexityData(response.data)
+            if (response.code === 1006) {
+
+            } else {
+                setComplexityData(response.data)
+
+            }
         } catch (e) {
 
         }

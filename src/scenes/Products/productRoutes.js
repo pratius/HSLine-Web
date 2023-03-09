@@ -15,7 +15,7 @@ export default {
             isProtected: false,
         },
         {
-            path: "/product/detail",
+            path: "/product/detail/:productId",
             component: ProductDetail,
             exact: true,
             isProtected: false,

@@ -18,6 +18,7 @@ import { useState } from "react";
 import { menuList } from "shared/SideNav/nav.constants";
 import PageMenu from "shared/PageMenu";
 import { Box } from "@mui/system";
+import CountrySideNav from "shared/CountrySideNav";
 
 
 
@@ -45,7 +46,7 @@ export default function Detail() {
     return (
 
         <div className="flex flex-col min-h-screenpt-4 mt-36 sm:mt-16">
-            <SideNav menuList={menuList['detail']} onChange={setActiveSection} />
+            <CountrySideNav menuList={menuList['detail']} onChange={setActiveSection} />
 
             <Header />
             <div className="flex flex-col justify-center sm:ml-52" >

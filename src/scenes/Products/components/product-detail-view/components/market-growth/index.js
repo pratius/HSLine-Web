@@ -10,7 +10,7 @@ export default function PriceIndexGeo(offset) {
         <div className='mt-8'>
             <h2 className='text-left font-bold text-xl text-gray-800'>Price Index Change</h2>
             <div className='flex mt-8 h-96 w-full'>
-                <GeoMap />
+                {/* <GeoMap /> */}
             </div>
         </div>
 

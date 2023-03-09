@@ -1,14 +1,35 @@
 import { Button, Chip } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { API_ENDPOINT_PRODUCT_FETCH_PRODUCT_GIST, API_ENDPOINT_PRODUCT_FETCH_PRODUCT_INFO } from 'scenes/Products/products.constants';
+import { apiPost } from 'services/apiServices';
 import LineGraph from 'shared/LineGraph';
 import PopMenu from 'shared/PopMenu';
+import { history } from 'Store';
 import PriceIndexGeo from './components/market-growth';
 import ProductCard from './components/product-card';
 import ProductCategory from './components/product-cateogory';
 
 
-export default function ProductDetail(offset) {
+export default function ProductDetail(props) {
+    const productId = props.match.params.productId;
+    const [productInfo, setProductInfo] = useState(null)
+    const [productGist, setProductGist] = useState(null)
 
+    const fetchProductInfo = async () => {
+        const response = await apiPost(API_ENDPOINT_PRODUCT_FETCH_PRODUCT_INFO, { productId: productId })
+        setProductInfo(response.data)
+    }
+
+    const fetchProductGist = async () => {
+        const response = await apiPost(API_ENDPOINT_PRODUCT_FETCH_PRODUCT_GIST, { productId: productId })
+        setProductGist(response.data)
+    }
+    useEffect(() => {
+        if (!productId) history.push("product/category");
+        fetchProductInfo()
+        fetchProductGist()
+    }, [])
+    console.log("props is", props)
     return (
         <div className='relative'>
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
@@ -16,8 +37,8 @@ export default function ProductDetail(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <div className='flex flex-row items-center '>
-                        <img className='w-14 sm:w-20' src={"https://www.freeiconspng.com/uploads/download-apples-png-image-red-apple-fruit-10.png"} alt=" countryFlag" />
-                        <h1 className='ml-3 text-3xl sm:text-5xl font-bold text-gray-800'>Fresh Apple</h1>
+                        <img className='w-14 sm:w-20' src={productInfo && productInfo.image} alt=" countryFlag" />
+                        <h1 className='ml-3 text-3xl sm:text-5xl font-bold text-gray-800'>{productInfo && productInfo.product_name}</h1>
                         <div className='ml-8'>
                             <PopMenu label="Global" items={["2020", "EXPORTS"]} />
 
@@ -25,8 +46,7 @@ export default function ProductDetail(offset) {
                     </div>
                     <div className='flex flex-col mt-4 sm:mt-3'>
                         <p className='text-left text-xs sm:text-base  text-gray-600'>
-                            In 2020, China was the number 2 economy in the world in terms of GDP (current US$), the number 1 in total exports, the number 2 in total imports, the number 77 economy in terms of GDP per capita (current US$) and the number 28 most complex economy according to the Economic Complexity Index (ECI).
-                            <br />In 2020, China was the world's biggest exporter of Broadcasting Equipment ($223B), Computers ($156B), Office Machine Parts ($86.8B), Other Cloth Articles ($60.7B), and Telephones ($51B)
+                            {productInfo && productInfo.overview}
                         </p>
 
                     </div>
@@ -34,24 +54,24 @@ export default function ProductDetail(offset) {
                         <div className='flex flex-col  cursor-pointer hover:bg-slate-200 p-3 rounded duration-30 bg-white mr-4 mb-4 sm:mb-0'>
                             <h5 className='text-gray-600 font-semibold text-xs'>2020</h5>
                             <h3 className='text-gray-800 font-semibold text-xs'>TOP EXPORTER</h3>
-                            <h1 className='text-gray-800 font-bold text-xl mt-2'>Brazil</h1>
+                            <h1 className='text-gray-800 font-bold text-xl mt-2'>{productGist && productGist.topExporter && productGist.topExporter.Country_name}</h1>
                         </div>
 
                         <div className='flex flex-col  cursor-pointer hover:bg-slate-200 p-3 rounded duration-30 bg-white mr-4 mb-4 sm:mb-0'>
                             <h5 className='text-gray-600 font-semibold text-xs'>2020</h5>
                             <h3 className='text-gray-800 font-semibold text-xs'>TOP IMPORTER</h3>
-                            <h1 className='text-gray-800 font-bold text-xl mt-2'>USA</h1>
+                            <h1 className='text-gray-800 font-bold text-xl mt-2'>{productGist && productGist.topImporter && productGist.topImporter.Country_name}</h1>
                         </div>
 
                         <div className='flex flex-col  cursor-pointer hover:bg-slate-200 p-3 rounded duration-30 bg-white mr-4 mb-4 sm:mb-0'>
                             <h5 className='text-gray-600 font-semibold text-xs'>2020</h5>
                             <h3 className='text-gray-800 font-semibold text-xs'>EXPORT VALUE</h3>
-                            <h1 className='text-gray-800 font-bold text-xl mt-2'>$89B</h1>
+                            <h1 className='text-gray-800 font-bold text-xl mt-2'>${productGist && productGist.topExporter && productGist.topExporter.total_value}</h1>
                         </div>
                         <div className='flex flex-col  cursor-pointer hover:bg-slate-200 p-3 rounded duration-30 bg-white mr-4 mb-4 sm:mb-0'>
                             <h5 className='text-gray-600 font-semibold text-xs'>2020</h5>
                             <h3 className='text-gray-800 font-semibold text-xs'>IMPORT VALUE</h3>
-                            <h1 className='text-gray-800 font-bold text-xl mt-2'>$109B</h1>
+                            <h1 className='text-gray-800 font-bold text-xl mt-2'>${productGist && productGist.topImporter && productGist.topImporter.total_value}</h1>
                         </div>
                     </div>
 
@@ -89,7 +109,7 @@ export default function ProductDetail(offset) {
                         </div>
                     </div>
 
-                    <PriceIndexGeo />
+                    {/* <PriceIndexGeo /> */}
 
                     <div className='flex mt-8 h-96 w-full  flex-col'>
                         <div className='flex items-centr'>
