@@ -13,13 +13,14 @@ import { Box } from "@mui/material";
 
 export default function Products(props) {
     const [activeSection, setActiveSection] = useState(0)
+    const [drawerWidth, setDrawerWidth] = useState(260)
     return (
 
         <div className="flex flex-col min-h-screenpt-4 mt-36 sm:mt-16">
-            <SideNav menuList={menuList['products']} onChange={setActiveSection} />
+            <SideNav menuList={menuList['products']} onChange={setActiveSection} onWidthChange={(data) => setDrawerWidth(data)} />
 
             <Header />
-            <div className="flex flex-col justify-center sm:ml-64" >
+            <div className="flex flex-col justify-center sm:ml-80" >
                 <Box
                     sx={{ display: { xl: 'none', xs: 'block', sm: 'none' } }}
                 >

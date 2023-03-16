@@ -1,5 +1,4 @@
 import { ResponsiveChoropleth } from '@nivo/geo'
-import data from "./data";
 import countries from "./world_countries.json";
 
 const getColor = ["#c0392b", "#27ae60"];
@@ -13,8 +12,8 @@ const GeoMap = (props) => (
         domain={[0, 1]}
         unknownColor="#b6b6b6"
         valueFormat=".2s"
-        projectionScale={100}
-        projectionTranslation={[0.5, 0.5]}
+        projectionScale={113}
+        projectionTranslation={[0.5, 0.7]}
         projectionRotation={[0, 0, 0]}
         enableGraticule={false}
         graticuleLineColor="#ffffff"
@@ -28,7 +27,7 @@ const GeoMap = (props) => (
                     background: "#ffffff"
                 }}
             >
-                <span>Look, I'm custom :</span>
+                <span>Ranking</span>
                 <br />
                 <strong>
                     <span>{data.feature.properties.name}</span>

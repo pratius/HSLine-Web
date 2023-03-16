@@ -12,7 +12,13 @@ import { Box } from "@mui/system";
 import MobileMenu from "shared/MobileMenu";
 import Settings from "shared/Settings";
 import { API_ENDPOINT_PROFILE_INFO_FETCH } from "scenes/Auth/auth.constants";
+import { API_ENDPOINT_PRODUCT_FETCH_CATEGORY } from "scenes/Products/products.constants";
+
 import { apiGet } from "services/apiServices";
+
+
+
+
 function Header(props) {
     const [selectedCountry, setSelectedCountry] = useState(2)
     const [isLoggedIn, setLoggedIn] = useState(false)

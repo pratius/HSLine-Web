@@ -7,7 +7,7 @@ import EmptyState from 'shared/EmptyState';
 import { apiGet } from 'services/apiServices';
 import { API_ENDPOINT_PRO_STATS_ECONOMIC_COMPLEXITY } from 'scenes/Detail/detail.constants';
 
-export default function EconomicComplexity(offset) {
+export default function EconomicComplexity(props) {
     const [complexityData, setComplexityData] = useState([])
 
 
@@ -16,7 +16,7 @@ export default function EconomicComplexity(offset) {
     }, [])
     const fetchECI = async () => {
         try {
-            let response = await apiGet(API_ENDPOINT_PRO_STATS_ECONOMIC_COMPLEXITY)
+            let response = await apiGet(API_ENDPOINT_PRO_STATS_ECONOMIC_COMPLEXITY + "?country=" + (props.country || "all"))
             if (response.code === 1006) {
 
             } else {
@@ -37,7 +37,7 @@ export default function EconomicComplexity(offset) {
                 <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
                     <h2 className='text-center font-bold text-4xl my-10 text-gray-800'>ECONOMIC COMPLEXITY
                     </h2>
-                    <div className='flex flex-col lg:flex-row justify-between mt-4'>
+                    {/* <div className='flex flex-col lg:flex-row justify-between mt-4'>
                         <div className='flex mb-6 lg:mb-0'>
                             <div className='mr-3'>
                                 <PopMenu label="Flow" items={["IMPORTS", "EXPORTS"]} />
@@ -47,10 +47,9 @@ export default function EconomicComplexity(offset) {
                             </div>
 
                         </div>
-                        <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}> <LaunchRoundedIcon style={{ fontSize: 20, marginRight: 4 }} /> Explore Subnational Data</Button>
 
 
-                    </div>
+                    </div> */}
                     {/* <div className='flex flex-wrap lg:flex-row mt-6 mb-4'>
 
                         <Chip className='drop-shadow-md mr-2 mb-2 lg:mb-0 ' color="primary" label={<div className='flex items-center'>

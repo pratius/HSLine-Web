@@ -11,7 +11,7 @@ export default function CountryIndexCard(props) {
     }
 
     return (
-        <div onClick={() => history.push("/detail")} className='generic-card-shadow rounded w-full  sm:w-2/5 lg:w-64 h-32 p-4 flex flex-col justify-between mb-4 sm:mb-0 sm:m-2 sm:mx-3 cursor-pointer hover:scale-110 duration-300' style={{ background: 'white' }}>
+        <div onClick={() => history.push("/detail/" + props.data.Country_code)} className='generic-card-shadow rounded w-full  sm:w-2/5 lg:w-64 h-32 p-4 flex flex-col justify-between mb-4 sm:mb-0 sm:m-2 sm:mx-3 cursor-pointer hover:scale-110 duration-300' style={{ background: 'white' }}>
             <div className='flex items-center'>
                 <img className='w-6 h-4 object-cover' src={`https://www.countryflags.com/wp-content/uploads/${props.data.Country_name.replaceAll(" ", "-").toLowerCase()}-flag-png-large.png`} alt="countryFlag" />
 

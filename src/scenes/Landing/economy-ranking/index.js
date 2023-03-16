@@ -6,6 +6,8 @@ import Brazil from "assets/images/countries/brazil.png"
 import Sweden from "assets/images/countries/sweden.png"
 import Japan from "assets/images/countries/japan.png"
 import Mexico from "assets/images/countries/mexico.png"
+import ComplexityRanking from 'scenes/Detail/components/complexity-ranking';
+import EconomicComplexity from 'scenes/Detail/components/economy-complexity';
 
 export default function EconomyRanking(offset) {
 
@@ -22,7 +24,7 @@ export default function EconomyRanking(offset) {
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
                         As a professional, it is important to be aware of which countries and regions are expected to experience growth in international trade in the future. Our website provides the information you need to make informed decisions about which markets to target.<br /> Through careful research and analysis, we can accurately predict which countries and regions are predicted to experience growth in the near future. By taking advantage of this valuable resource, you can ensure your company remains competitive in the global marketplace.
                     </p>
-                    <div className='flex flex-col sm:flex-row items-center justify-between mt-4 md:p-4'>
+                    {/* <div className='flex flex-col sm:flex-row items-center justify-between mt-4 md:p-4'>
                         <div className="flex flex-col items-center cursor-pointer mb-8 sm:mb-0">
                             <img src={USA} alt="countryMap" className='w-72 h-72 object-contain hover:scale-90 duration-300' />
                             <h5 className='text-xl text-gray-800 mt-3'>
@@ -66,7 +68,8 @@ export default function EconomyRanking(offset) {
                                 Brazil
                             </h5>
                         </div>
-                    </div>
+                    </div> */}
+                    <EconomicComplexity country="all" />
 
 
                 </div>

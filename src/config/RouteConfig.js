@@ -24,7 +24,7 @@ const routes = [
     isProtected: false,
   },
   {
-    path: "/detail",
+    path: "/detail/:countryCode",
     component: Detail,
     exact: true,
     isProtected: false,

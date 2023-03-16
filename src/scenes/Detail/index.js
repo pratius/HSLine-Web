@@ -23,8 +23,10 @@ import CountrySideNav from "shared/CountrySideNav";
 
 
 
-export default function Detail() {
+export default function Detail(props) {
     const [activeSection, setActiveSection] = useState(0)
+    const countryCode = props.match.params.countryCode;
+
     const renderSections = () => {
         switch (activeSection) {
             case 0:
@@ -32,7 +34,7 @@ export default function Detail() {
             case 1:
                 return <LatestTrends />
             case 2:
-                return <EconomicComplexity />
+                return <EconomicComplexity country={countryCode} />
             case 3:
                 return <ServiceTrade />
             case 4:

@@ -71,11 +71,12 @@ export async function apiDelete(url, data = {}) {
 
 
 
-export async function apiGet(url = "") {
+export async function apiGet(url = "", header = {}) {
   const response = await fetch(url, {
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json"
+      Accept: "application/json",
+      ...header
     }
   }).then(res => res.json());
   return await response;
