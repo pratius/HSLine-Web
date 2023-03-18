@@ -19,7 +19,7 @@ export default function Landing() {
             <LandingTradle />
             <EconomyRanking />
             <CountryReport />
-            <Blogs />
+            {/* <Blogs /> */}
 
             <Footer />
 

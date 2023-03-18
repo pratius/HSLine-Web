@@ -20,7 +20,7 @@ import { apiGet } from "services/apiServices";
 
 
 function Header(props) {
-    const [selectedCountry, setSelectedCountry] = useState(2)
+    const [selectedCountry, setSelectedCountry] = useState(0)
     const [isLoggedIn, setLoggedIn] = useState(false)
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -122,7 +122,7 @@ function Header(props) {
                                             return (
 
                                                 <Option value={key} key={key}>
-                                                    <div className="flex flex-row items-center ">
+                                                    <div className="flex flex-row items-center" onClick={() => history.push("/detail/" + country.code)}>
                                                         <img src={country.image} className="w-4 mr-3 " />
                                                         <label className="truncate">{country.name}</label>
                                                     </div>

@@ -1,1 +1,2 @@
 export const API_ENDPOINT_OPENSTATS_TOP_COUNTRIES = `${process.env.REACT_APP_API_URL}openstats/topcountries`
+export const API_ENDPOINT_COMMON_FETCH_BLOGS = `${process.env.REACT_APP_API_URL}common/blogs`
