@@ -27,33 +27,33 @@ export default function ReportView(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
 
-                    <div className='report-graph-type flex flex-row '>
-                        <div className=' graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                    <div className='report-graph-type flex flex-row md:flex-wrap  '>
+                        <div className='mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <StackedLineChartRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>STACKED </h4>
                         </div>
 
-                        <div className='graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                        <div className='mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <TimelineRoundedIcon className='text-gray-800 ' />
                             <h4 className='text-lg font-semibold text-gray-800'>LINE </h4>
                         </div>
 
-                        <div className='graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                        <div className='mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <TableChartRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>TREE MAP </h4>
                         </div>
 
-                        <div className='graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                        <div className='mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <BubbleChartRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>RING </h4>
                         </div>
 
-                        <div className='graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                        <div className='mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <LanguageRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>GEO MAP </h4>
                         </div>
 
-                        <div className='graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                        <div className='mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <AccountTreeRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>NETWORK </h4>
                         </div>
@@ -84,15 +84,15 @@ export default function ReportView(offset) {
                         </div>
 
                     </div>
-                    <div className='flex flex-row mt-8 mb-12'>
+                    <div className='flex flex-row mt-8 mb-12 md:flex-col'>
                         <div className="w-full sm:w-96 mt-6 sm:mt-0">
                             <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} />
                         </div>
-                        <div className="w-full sm:w-96 mt-6 sm:mt-0 ml-16">
+                        <div className="w-full sm:w-96 mt-6 sm:mt-0 ml-16 md:ml-0 md:mt-5">
                             <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} />
                         </div>
 
-                        <div className='ml-12'>
+                        <div className='ml-12 md:ml-0 md:mt-5'>
                             <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}> Generate Report</Button>
 
                         </div>
