@@ -27,7 +27,7 @@ export default function ReportView(offset) {
             <div className="relative overflow-hidden hero-black" >
                 <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
 
-                    <div className='report-graph-type flex flex-row md:flex-wrap  '>
+                    <div className='report-graph-type flex flex-row md:flex-wrap overflow-x-auto sm:overflow-hidden	  '>
                         <div className='mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
                             <StackedLineChartRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>STACKED </h4>
@@ -59,7 +59,7 @@ export default function ReportView(offset) {
                         </div>
 
                     </div>
-                    <div className='flex flex-row items-center'>
+                    <div className='flex flex-col sm:flex-row items-start sm:items-center'>
                         <div className='flex flex-col mt-6 '>
                             <h2 className='mb-2 font-semibold text-gray-700'>Select Trade Flow</h2>
 
@@ -68,7 +68,7 @@ export default function ReportView(offset) {
                             </div>
                         </div>
 
-                        <div className='query-type mt-6 ml-10'>
+                        <div className='query-type mt-6 sm:ml-10'>
                             <h2 className='mb-2 font-semibold text-gray-700'>Select Report Query Type</h2>
                             <ToggleButtonGroup
                                 color="primary"
@@ -84,22 +84,22 @@ export default function ReportView(offset) {
                         </div>
 
                     </div>
-                    <div className='flex flex-row mt-8 mb-12 md:flex-col'>
-                        <div className="w-full sm:w-96 mt-6 sm:mt-0">
+                    <div className='flex flex-col  mt-8 mb-12 lg:flex-row'>
+                        <div className="w-full sm:w-96 mt-6 sm:mt-0 ">
                             <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} />
                         </div>
-                        <div className="w-full sm:w-96 mt-6 sm:mt-0 ml-16 md:ml-0 md:mt-5">
+                        <div className="w-full sm:w-96 mt-6 ml-0 md:ml-0 lg:ml-16 lg:mt-0 ">
                             <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} />
                         </div>
 
-                        <div className='ml-12 md:ml-0 md:mt-5'>
-                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}> Generate Report</Button>
+                        <div className='ml-0 lg:ml-12 mt-5 lg:mt-0'>
+                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} fullWidth> Generate Report</Button>
 
                         </div>
                     </div>
 
 
-                    <div className='flex mt-12 h-96 w-full flex-col'>
+                    <div className='flex mt-8 h-96 w-full flex-col'>
                         <h2 className='mb-2 font-semibold text-2xl text-center text-gray-700 mb-6'>What does Nicaragua export? (2013-2020)</h2>
 
                         <GeoMap />
