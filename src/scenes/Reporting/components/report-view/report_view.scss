@@ -1,0 +1,18 @@
+.ReportView {
+
+    .graph-type-card {
+        h4 {
+            margin-left: 4px;
+        }
+
+        &:hover {
+            h4 {
+                color: white
+            }
+
+            svg {
+                color: white
+            }
+        }
+    }
+}

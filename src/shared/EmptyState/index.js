@@ -1,6 +1,7 @@
 import { Button } from "@mui/material"
 import React from "react"
 import Premium from "assets/images/premium.svg"
+import { history } from "Store"
 export default function EmptyState(props) {
     const isLoggedIn = () => {
         return localStorage.getItem("token") !== null ? true : false
@@ -15,7 +16,7 @@ export default function EmptyState(props) {
 
                 </h5>
 
-                <Button variant="contained" style={{ backgroundColor: 'black', textTransform: 'none' }}>{isLoggedIn() ? "Update Required Details" : "Sign Up"}</Button>
+                <Button variant="contained" style={{ backgroundColor: 'black', textTransform: 'none' }} onClick={() => isLoggedIn() ? props.onSetup() : history.push("/auth/login")}>{isLoggedIn() ? "Update Required Details" : "Sign Up"}</Button>
             </div>
 
         </div>

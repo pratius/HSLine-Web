@@ -3,7 +3,15 @@ import React from 'react';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import PopMenu from 'shared/PopMenu';
 import EmptyState from 'shared/EmptyState';
-export default function LatestTrends(offset) {
+import { connect, useDispatch } from 'react-redux';
+import BarGraph from 'shared/BarGraph';
+function LatestTrends(props) {
+    const dispatch = useDispatch()
+
+    const handleSettingsOpen = () => {
+        dispatch({ type: "SET_SETTING_DIALOG_OPEN", payload: true })
+
+    }
 
     return (
         <div className='relative'>
@@ -63,7 +71,9 @@ export default function LatestTrends(offset) {
                     </div>
                     <div className='flex mt-8'>
                         <div className='graphArea w-full h-80 bg-neutral-200 mx-2 rounded'>
-                            <EmptyState variant="horizontal" />
+                            {props.userInfo.total_members !== null ?
+                                <BarGraph /> :
+                                <EmptyState variant="horizontal" onSetup={handleSettingsOpen} />}
                         </div>
 
                     </div>
@@ -73,3 +83,10 @@ export default function LatestTrends(offset) {
         </div >
     )
 }
+
+const mapStateToProps = state => {
+    return { userInfo: state.userInfo };
+};
+export default connect(
+    mapStateToProps,
+)(LatestTrends);

@@ -149,7 +149,7 @@ const SearchBox = (props) => {
     return (
         <DebounceSelect
             value={value}
-            placeholder="Search products"
+            placeholder={props.placeholder || "Search products"}
             fetchOptions={fetchProudcts}
             onChange={(newValue) => {
                 dispatch({ type: "CHANGE_CURRENT_COUNTRY", payload: newValue })

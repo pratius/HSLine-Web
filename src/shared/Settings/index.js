@@ -17,6 +17,10 @@ function Settings(props) {
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
     };
+
+
+
+
     const renderContent = () => {
         switch (selectedIndex) {
             case 0:

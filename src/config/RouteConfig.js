@@ -8,11 +8,13 @@ import Products from "scenes/Products";
 import productRoutes from "scenes/Products/productRoutes";
 import Services from "scenes/Services";
 import maseterLayoutRoutes from "shared/MasterLayout/masterLayoutRoutes";
+import reportRoutes from "scenes/Reporting/reportRoutes";
 
 const childRoutes = [
   authRoutes,
   maseterLayoutRoutes,
-  productRoutes
+  productRoutes,
+  reportRoutes
 
 ];
 

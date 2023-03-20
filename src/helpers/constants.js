@@ -10,6 +10,13 @@ export const SITE_STATIC_DATA = {
             isEmphasized: false,
         },
         {
+            title: "Reports",
+            path: "/reporting/view",
+            isExternal: false,
+            isNested: false,
+            isEmphasized: false,
+        },
+        {
             title: "Services",
             path: "/services",
             isExternal: false,

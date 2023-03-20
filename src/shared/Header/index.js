@@ -7,7 +7,7 @@ import { Avatar, Button, Dialog, Hidden, IconButton, Menu, MenuItem, Tooltip, Ty
 import SearchBox from "shared/SearchBox";
 import { Select, Space } from "antd";
 import Countries from "./countries.json"
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { Box } from "@mui/system";
 import MobileMenu from "shared/MobileMenu";
 import Settings from "shared/Settings";
@@ -40,6 +40,11 @@ function Header(props) {
             setLoggedIn(true)
         }
     }, [])
+
+    useEffect(() => {
+        if (props.openSetting) setOpen(true)
+    }, [props.openSetting])
+
 
     const getUserInfo = async () => {
         let response = await apiGet(API_ENDPOINT_PROFILE_INFO_FETCH);
@@ -210,4 +215,12 @@ function Header(props) {
     )
 }
 
-export default Header
+
+
+const mapStateToProps = state => {
+    return { openSetting: state.openSetting };
+};
+export default connect(
+    mapStateToProps,
+)(Header);
+

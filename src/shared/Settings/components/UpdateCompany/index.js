@@ -2,13 +2,22 @@ import React, { useState } from "react"
 
 import { Button, Input } from "antd";
 import { API_ENDPOINT_PROFILE_UPDATE_COMPANY } from "shared/Settings/settings.constants";
-import { apiPost } from "services/apiServices";
+import { apiGet, apiPost } from "services/apiServices";
+import { useDispatch } from "react-redux";
+import { API_ENDPOINT_PROFILE_INFO_FETCH } from "scenes/Auth/auth.constants";
 function UpdateCompany(props) {
     const [name, setName] = useState(props.data?.company_name || "")
     const [website, setWebsite] = useState(props.data?.company_website || "")
     const [members, setMembers] = useState(props.data?.total_members || "")
     const [isLoading, setLoading] = useState(false)
+    const dispatch = useDispatch()
 
+
+    const getUserInfo = async () => {
+        let response = await apiGet(API_ENDPOINT_PROFILE_INFO_FETCH);
+        dispatch({ type: "UPDATE_USER_INFO", payload: response.data })
+
+    }
 
     const handleUpdateCompany = async () => {
         setLoading(true)
@@ -24,6 +33,7 @@ function UpdateCompany(props) {
                 type: 'success',
                 content: response.message,
             });
+            getUserInfo()
         } else {
             props.toast.open({
                 type: 'error',
