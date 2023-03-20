@@ -13,6 +13,15 @@ function LatestTrends(props) {
 
     }
 
+    const isLoggedIn = () => {
+        let token = localStorage.getItem("token");
+        if (token === null) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     return (
         <div className='relative'>
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
@@ -38,11 +47,10 @@ function LatestTrends(props) {
                                 <PopMenu label="Type" items={["IMPORTS", "EXPORTS"]} />
                             </div>
                         </div>
-                        <Button variant="contained" style={{ background: 'black', textTransform: 'none' }}> <DownloadRoundedIcon style={{ fontSize: 20, marginRight: 4 }} /> Bulk Download</Button>
 
 
                     </div>
-                    <div className='flex flex-wrap sm:flex-row mt-6 mb-4'>
+                    {/* <div className='flex flex-wrap sm:flex-row mt-6 mb-4'>
                         <Chip className='drop-shadow-md mr-2 mb-2 lg:mb-0 ' color="primary" label={<div className='flex items-center'>
                             <small className='text-xs'>EXPORT GROWTH (2022-2023)</small>
                             <small className="text-sm ml-4 font-semibold" >33% (-1.4%)</small>
@@ -68,10 +76,10 @@ function LatestTrends(props) {
                         </div>} size="small" />
 
 
-                    </div>
+                    </div> */}
                     <div className='flex mt-8'>
                         <div className='graphArea w-full h-80 bg-neutral-200 mx-2 rounded'>
-                            {props.userInfo.total_members !== null ?
+                            {props.userInfo.total_members !== null && isLoggedIn() ?
                                 <BarGraph /> :
                                 <EmptyState variant="horizontal" onSetup={handleSettingsOpen} />}
                         </div>

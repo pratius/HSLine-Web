@@ -13,6 +13,7 @@ import SearchBox from 'shared/SearchBox';
 export default function ReportView(offset) {
     const [alignment, setAlignment] = React.useState('product');
     const [queryType, setQueryType] = useState("product")
+    const [graphType, setGraphType] = useState("stacked")
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
         newAlignment: string,
@@ -28,7 +29,7 @@ export default function ReportView(offset) {
                 <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
 
                     <div className='report-graph-type flex flex-row md:flex-wrap overflow-x-auto sm:overflow-hidden	  '>
-                        <div className='mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300'>
+                        <div className='mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300' >
                             <StackedLineChartRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>STACKED </h4>
                         </div>
