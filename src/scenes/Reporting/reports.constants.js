@@ -1,0 +1,1 @@
+export const API_ENDPOINT_REPORTS_BUILD_VISUALIZATION = `${process.env.REACT_APP_API_URL}reports/visualize`

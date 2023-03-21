@@ -12,11 +12,14 @@ import GeoMap from 'shared/GeoMap';
 import SearchBox from 'shared/SearchBox';
 import LineChart from 'shared/LineChart';
 import TreeGraph from 'shared/TreeGraph';
+import { apiPost } from 'services/apiServices';
+import { API_ENDPOINT_REPORTS_BUILD_VISUALIZATION } from 'scenes/Reporting/reports.constants';
 export default function ReportView(offset) {
     const [alignment, setAlignment] = React.useState('product');
     const [queryType, setQueryType] = useState("product")
     const [graphType, setGraphType] = useState("stacked")
     const [tradeType, setTradeType] = useState("imports")
+    const [visData, setVisData] = useState([])
     const handleChange = (
         event,
         newAlignment,
@@ -80,19 +83,249 @@ export default function ReportView(offset) {
                 }
             ]
         },
-
+        {
+            "id": "france",
+            "color": "hsl(247, 70%, 50%)",
+            "data": [
+                {
+                    "x": "plane",
+                    "y": 201
+                },
+                {
+                    "x": "helicopter",
+                    "y": 62
+                },
+                {
+                    "x": "boat",
+                    "y": 114
+                },
+                {
+                    "x": "train",
+                    "y": 147
+                },
+                {
+                    "x": "subway",
+                    "y": 168
+                },
+                {
+                    "x": "bus",
+                    "y": 299
+                },
+                {
+                    "x": "car",
+                    "y": 139
+                },
+                {
+                    "x": "moto",
+                    "y": 236
+                },
+                {
+                    "x": "bicycle",
+                    "y": 39
+                },
+                {
+                    "x": "horse",
+                    "y": 228
+                },
+                {
+                    "x": "skateboard",
+                    "y": 18
+                },
+                {
+                    "x": "others",
+                    "y": 47
+                }
+            ]
+        },
+        {
+            "id": "us",
+            "color": "hsl(128, 70%, 50%)",
+            "data": [
+                {
+                    "x": "plane",
+                    "y": 17
+                },
+                {
+                    "x": "helicopter",
+                    "y": 44
+                },
+                {
+                    "x": "boat",
+                    "y": 245
+                },
+                {
+                    "x": "train",
+                    "y": 55
+                },
+                {
+                    "x": "subway",
+                    "y": 90
+                },
+                {
+                    "x": "bus",
+                    "y": 167
+                },
+                {
+                    "x": "car",
+                    "y": 76
+                },
+                {
+                    "x": "moto",
+                    "y": 232
+                },
+                {
+                    "x": "bicycle",
+                    "y": 135
+                },
+                {
+                    "x": "horse",
+                    "y": 294
+                },
+                {
+                    "x": "skateboard",
+                    "y": 228
+                },
+                {
+                    "x": "others",
+                    "y": 280
+                }
+            ]
+        },
+        {
+            "id": "germany",
+            "color": "hsl(69, 70%, 50%)",
+            "data": [
+                {
+                    "x": "plane",
+                    "y": 40
+                },
+                {
+                    "x": "helicopter",
+                    "y": 278
+                },
+                {
+                    "x": "boat",
+                    "y": 6
+                },
+                {
+                    "x": "train",
+                    "y": 115
+                },
+                {
+                    "x": "subway",
+                    "y": 41
+                },
+                {
+                    "x": "bus",
+                    "y": 215
+                },
+                {
+                    "x": "car",
+                    "y": 149
+                },
+                {
+                    "x": "moto",
+                    "y": 252
+                },
+                {
+                    "x": "bicycle",
+                    "y": 69
+                },
+                {
+                    "x": "horse",
+                    "y": 34
+                },
+                {
+                    "x": "skateboard",
+                    "y": 106
+                },
+                {
+                    "x": "others",
+                    "y": 177
+                }
+            ]
+        },
+        {
+            "id": "norway",
+            "color": "hsl(305, 70%, 50%)",
+            "data": [
+                {
+                    "x": "plane",
+                    "y": 156
+                },
+                {
+                    "x": "helicopter",
+                    "y": 18
+                },
+                {
+                    "x": "boat",
+                    "y": 273
+                },
+                {
+                    "x": "train",
+                    "y": 95
+                },
+                {
+                    "x": "subway",
+                    "y": 280
+                },
+                {
+                    "x": "bus",
+                    "y": 129
+                },
+                {
+                    "x": "car",
+                    "y": 236
+                },
+                {
+                    "x": "moto",
+                    "y": 65
+                },
+                {
+                    "x": "bicycle",
+                    "y": 29
+                },
+                {
+                    "x": "horse",
+                    "y": 29
+                },
+                {
+                    "x": "skateboard",
+                    "y": 16
+                },
+                {
+                    "x": "others",
+                    "y": 141
+                }
+            ]
+        }
     ]
+
+    const buildVisualize = async () => {
+        let payload = {
+            "flow_type": "exports",
+            "query_type": "",
+            "countries": [
+                "ABW"
+            ],
+            "products": [],
+            "partners": []
+        }
+
+        const response = await apiPost(API_ENDPOINT_REPORTS_BUILD_VISUALIZATION, payload)
+        setVisData(response.data)
+    }
 
     const renderChart = () => {
         switch (graphType) {
             case "stacked":
                 return <LineChart data={data} />
             case "line":
-                return <LineChart data={data} />
+                return <LineChart data={[data[0]]} />
             case "tree":
                 return <TreeGraph />
             case "geomap":
-                return <GeoMap />
+                return <GeoMap data={visData} />
             default:
                 return <LineChart />
 
@@ -164,12 +397,13 @@ export default function ReportView(offset) {
                         <div className="w-full sm:w-96 mt-6 sm:mt-0 ">
                             <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} selectOnly />
                         </div>
-                        <div className="w-full sm:w-96 mt-6 ml-0 md:ml-0 lg:ml-16 lg:mt-0 ">
-                            <SearchBox type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly />
-                        </div>
+                        {graphType === "geomap" ? null :
+                            <div className="w-full sm:w-96 mt-6 ml-0 md:ml-0 lg:ml-16 lg:mt-0 ">
+                                <SearchBox type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly />
+                            </div>}
 
                         <div className='ml-0 lg:ml-12 mt-5 lg:mt-0'>
-                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} fullWidth> Generate Report</Button>
+                            <Button variant="contained" style={{ background: 'black', textTransform: 'none' }} onClick={buildVisualize} fullWidth> Generate Report</Button>
 
                         </div>
                     </div>
