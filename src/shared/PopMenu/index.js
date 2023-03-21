@@ -57,6 +57,11 @@ export default function PopMenu(props) {
         setAnchorEl(null);
     };
 
+    const handleSelect = (item) => {
+        props.onSelect && props.onSelect(item);
+        handleClose()
+    }
+
     return (
         <div>
             <Button
@@ -84,7 +89,7 @@ export default function PopMenu(props) {
             >
                 {props.items.map((item, key) => {
                     return (
-                        <MenuItem key={key} onClick={handleClose} disableRipple>
+                        <MenuItem key={key} onClick={() => handleSelect(item)} disableRipple>
                             {item}
                         </MenuItem>
                     )

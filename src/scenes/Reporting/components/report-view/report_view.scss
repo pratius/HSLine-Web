@@ -15,4 +15,17 @@
             }
         }
     }
+
+    .active-card {
+        background-color: rgb(15 23 42);
+
+        h4 {
+            color: white
+        }
+
+        svg {
+            color: white
+        }
+
+    }
 }
