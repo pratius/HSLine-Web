@@ -305,13 +305,11 @@ export default function ReportView(offset) {
 
     const buildVisualize = async () => {
         let payload = {
-            "flow_type": "exports",
-            "query_type": "",
-            "countries": [
-                "ABW"
-            ],
-            "products": [],
-            "partners": []
+            "flow_type": tradeType,
+            "query_type": queryType,
+            "countries": listOne.map(item => item.value),
+            "products": listOne.map(item => item.value),
+            "partners": listTwo.map(item => item.value)
         }
 
         const response = await apiPost(API_ENDPOINT_REPORTS_BUILD_VISUALIZATION, payload)
@@ -463,7 +461,7 @@ export default function ReportView(offset) {
                         <div className="w-full sm:w-96 mt-6 sm:mt-0 ">
                             <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} selectOnly onSelect={(items) => setListOne([...items])} />
                         </div>
-                        {graphType === "geomap" ? null :
+                        {graphType === "geomap" && queryType !== "product" ? null :
                             <div className="w-full sm:w-96 mt-6 ml-0 md:ml-0 lg:ml-16 lg:mt-0 ">
                                 <SearchBox type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly onSelect={(items) => setListTwo([...items])} />
                             </div>}
