@@ -106,12 +106,15 @@ function DebounceSelect({ fetchOptions, debounceTimeout = 800, ...props }) {
             onBlur={() => setFocus(false)}
             notFoundContent={fetching ? <Spin size="small" /> : focus ? showInitialContent() : null}
             {...props}
+            onChange={handleSelect}
+            optionLabelProp="label"
+
         // options={options}
         >
             {options.map((item, key) => {
                 return (
-                    <Option key={key}>
-                        <div className='flex items-center' onClick={() => handleSelect(item)} >
+                    <Option key={key} value={item.id} label={item.name} title={item.name}>
+                        <div className='flex items-center' >
                             <img className='w-12 h-12' src={item.image} alt="productIMg" />
                             <div className='ml-4 flex flex-col'>
                                 <h5 className='text-gray-700 font-semibold truncate'>{item.name}</h5>
@@ -147,7 +150,8 @@ async function fetchProudcts(product_name) {
                 image: product.image,
                 category: product.category_name,
                 value: `${product.id}`,
-                label: product.product_name
+                label: product.product_name,
+                title: product.product_name
 
             })),
         );
@@ -179,16 +183,19 @@ const SearchBox = (props) => {
     const [value, setValue] = useState([]);
     const dispatch = useDispatch()
 
+
+    const handleItemSelected = (selectedItem) => {
+        setValue(selectedItem);
+        props.onSelect && props.onSelect(selectedItem)
+
+    }
     return (
         <DebounceSelect
             value={value}
             mode="multiple"
             placeholder={props.placeholder || "Search products"}
             fetchOptions={props.type === "product" ? fetchProudcts : fetchCountry}
-            onItemSelect={(item) => {
-                console.log("item is:", item)
-                setValue([...value, item])
-            }}
+            onItemSelect={handleItemSelected}
             // onChange={(newValue) => {
             //     if (props.selectOnly) {
             //         console.log("new value", newValue)

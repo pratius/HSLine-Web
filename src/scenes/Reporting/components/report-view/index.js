@@ -19,6 +19,8 @@ export default function ReportView(offset) {
     const [queryType, setQueryType] = useState("product")
     const [graphType, setGraphType] = useState("stacked")
     const [tradeType, setTradeType] = useState("imports")
+    const [listOne, setListOne] = useState([])
+    const [listTwo, setListTwo] = useState([])
     const [visData, setVisData] = useState([])
     const handleChange = (
         event,
@@ -331,6 +333,68 @@ export default function ReportView(offset) {
 
         }
     }
+
+    const titleFormatter = () => {
+        let title = ""
+        if (listOne.length == 0 && listTwo.length === 0) return title
+        if (queryType == "country" && listTwo.length === 0)
+            title = title + " where does"
+
+        if (queryType == "product" && listTwo.length === 0)
+            title = title + " which countries "
+        if (queryType == "product" && listTwo.length > 0)
+            title = title + " where does "
+
+
+        if (listTwo.length > 0 && queryType == "product") {
+            for (let idx in listTwo) {
+                title = title + " " + listTwo[idx].label + (listTwo[idx + 1] !== undefined ? " and " : "")
+            }
+
+            if (tradeType === "exports")
+                title = title + " Exports from"
+            if (tradeType === "imports")
+                title = title + " Imports"
+
+        } else if (listTwo.length === 0 && queryType == "product") {
+            if (tradeType === "exports")
+                title = title + " Exports from"
+            if (tradeType === "imports")
+                title = title + " Imports"
+        }
+
+
+
+
+        if (queryType == "country" && listTwo.length > 0)
+            title = title + " what does"
+        if (listOne.length > 0) {
+            for (let idx in listOne) {
+                title = title + " " + listOne[idx].label + (listOne[idx + 1] !== undefined ? " and " : ",")
+            }
+        }
+
+
+        if (queryType === "country") {
+            if (tradeType === "exports")
+                title = title + " Exports"
+            if (tradeType === "imports")
+                title = title + " Imports"
+        }
+
+
+        if (listTwo.length > 0 && queryType === "country") {
+            title = title + (tradeType === "imports" ? " from" : " to")
+            for (let idx in listTwo) {
+                title = title + " " + listTwo[idx].label + (listTwo[idx + 1] !== undefined ? " and " : "")
+            }
+        } else {
+            title = title + (tradeType === "imports" ? " from" : "")
+        }
+
+        return title
+    }
+    console.log("listone list:", listOne)
     return (
         <div className='relative ReportView'>
             {/* <img src={backImageLine} className="absolute top-0 left-0 " style={{zIndex:1}}/> */}
@@ -369,16 +433,10 @@ export default function ReportView(offset) {
 
                     </div>
                     <div className='flex flex-col sm:flex-row items-start sm:items-center'>
-                        <div className='flex flex-col mt-6 '>
-                            <h2 className='mb-2 font-semibold text-gray-700'>Select Trade Flow</h2>
 
-                            <div className='mr-3 mb-3 lg:mb-0'>
-                                <PopMenu label="Flow" value={tradeType} items={["IMPORTS", "EXPORTS"]} onSelect={(item) => setTradeType(item.toLowerCase())} />
-                            </div>
-                        </div>
 
-                        <div className='query-type mt-6 sm:ml-10'>
-                            <h2 className='mb-2 font-semibold text-gray-700'>Select Report Query Type</h2>
+                        <div className='query-type mt-6 '>
+                            <h2 className='mb-2 font-semibold text-gray-700'>Select Report Type</h2>
                             <ToggleButtonGroup
                                 color="primary"
                                 value={alignment}
@@ -392,14 +450,22 @@ export default function ReportView(offset) {
                             </ToggleButtonGroup>
                         </div>
 
+                        <div className='flex flex-col mt-6 sm:ml-10'>
+                            <h2 className='mb-2 font-semibold text-gray-700'>Select Query Flow</h2>
+
+                            <div className='mr-3 mb-3 lg:mb-0'>
+                                <PopMenu label="Flow" value={tradeType} items={["IMPORTS", "EXPORTS"]} onSelect={(item) => setTradeType(item.toLowerCase())} />
+                            </div>
+                        </div>
+
                     </div>
                     <div className='flex flex-col  mt-8 mb-12 lg:flex-row'>
                         <div className="w-full sm:w-96 mt-6 sm:mt-0 ">
-                            <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} selectOnly />
+                            <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} selectOnly onSelect={(items) => setListOne([...items])} />
                         </div>
                         {graphType === "geomap" ? null :
                             <div className="w-full sm:w-96 mt-6 ml-0 md:ml-0 lg:ml-16 lg:mt-0 ">
-                                <SearchBox type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly />
+                                <SearchBox type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly onSelect={(items) => setListTwo([...items])} />
                             </div>}
 
                         <div className='ml-0 lg:ml-12 mt-5 lg:mt-0'>
@@ -410,7 +476,7 @@ export default function ReportView(offset) {
 
 
                     <div className='flex mt-8 h-96 w-full flex-col'>
-                        <h2 className='mb-2 font-semibold text-2xl text-center text-gray-700 mb-6'>What does Nicaragua {tradeType.toLocaleLowerCase()}? (2013-2020)</h2>
+                        <h2 className='mb-2 font-semibold text-2xl text-center text-gray-700 mb-6'>{titleFormatter()}</h2>
 
                         {renderChart()}
                     </div>
