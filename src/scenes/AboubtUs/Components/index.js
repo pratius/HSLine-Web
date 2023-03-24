@@ -12,16 +12,16 @@ export default function About(offset) {
 
             <div className="relative overflow-hidden hero-black" >
 
-                <div className=" mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col ">
+                <div className=" mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col items-center">
                     <img
-                        className="w-auto h-auto"
-                        src={"https://img.freepik.com/free-vector/gradient-cryptocurrency-concept_23-2149215736.jpg?w=2000&t=st=1674901182~exp=1674901782~hmac=af9c30cf96a9f1486c0ddeca412d1688dc5630d220ce8cec6283ecae4812cf67"}
+                        className="w-auto h-auto mb-10"
+                        src={"https://www.kindpng.com/picc/m/500-5002094_surveysparrow-about-us-illustration-ux-hd-png-download.png"}
                         alt="illustration"
-                        style={{ height: '20rem' }}
+                        style={{ width: '32rem' }}
 
                     />
                     <br />
-                    <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-2xl ">
+                    <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-4xl mb-6">
                         GET TO KNOW US
                     </h1>
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">
@@ -41,7 +41,7 @@ export default function About(offset) {
                         We strive to create long-term, mutually beneficial relationships with our clients and to help them achieve their business objectives. We also work closely with our clients to build on their success and to help them grow and reach their full potential.
                     </p>
                     <br /><br />
-                    <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-2xl ">
+                    <h1 className="mb-2 tracking-tight leading-8 text-center sm:text-left font-bold text-2xl sm:text-2xl md:text-2xl lg:text-4xl mb-6">
                         ABOUT THE WEBSITE (Platform)
                     </h1>
                     <p className="mb-2 text-xs sm:text-sm md:text-sm text-gray-600 text-center sm:text-left">

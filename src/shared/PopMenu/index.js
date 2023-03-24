@@ -48,6 +48,7 @@ const StyledMenu = styled((props) => (
 }));
 
 export default function PopMenu(props) {
+    console.log("props value:", props.value)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -76,7 +77,7 @@ export default function PopMenu(props) {
                 style={{ background: 'white', color: 'black', textTransform: 'none' }}
                 className="generic-card-shadow "
             >
-                {props.label}
+                {(props.value && props.value.toUpperCase()) || props.label}
             </Button>
             <StyledMenu
                 id="demo-customized-menu"

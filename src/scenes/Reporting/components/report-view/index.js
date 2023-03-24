@@ -17,7 +17,7 @@ import { API_ENDPOINT_REPORTS_BUILD_VISUALIZATION } from 'scenes/Reporting/repor
 export default function ReportView(offset) {
     const [alignment, setAlignment] = React.useState('product');
     const [queryType, setQueryType] = useState("product")
-    const [graphType, setGraphType] = useState("stacked")
+    const [graphType, setGraphType] = useState("tree")
     const [tradeType, setTradeType] = useState("imports")
     const [listOne, setListOne] = useState([])
     const [listTwo, setListTwo] = useState([])
@@ -303,29 +303,38 @@ export default function ReportView(offset) {
         }
     ]
 
+    useEffect(() => {
+        setListOne([])
+        setListTwo([])
+    }, [queryType])
     const buildVisualize = async () => {
         let payload = {
             "flow_type": tradeType,
             "query_type": queryType,
             "countries": listOne.map(item => item.value),
             "products": listOne.map(item => item.value),
-            "partners": listTwo.map(item => item.value)
+            "partners": listTwo.map(item => item.value),
+            "graph_type": graphType
         }
 
         const response = await apiPost(API_ENDPOINT_REPORTS_BUILD_VISUALIZATION, payload)
-        setVisData(response.data)
+        if (response.status) {
+            setVisData(response.data)
+
+        }
     }
 
-    const renderChart = () => {
+    const renderChart = (graphData) => {
+        console.log("visData:", visData)
         switch (graphType) {
             case "stacked":
                 return <LineChart data={data} />
             case "line":
                 return <LineChart data={[data[0]]} />
             case "tree":
-                return <TreeGraph />
+                return <TreeGraph data={graphData} />
             case "geomap":
-                return <GeoMap data={visData} />
+                return <GeoMap data={graphData} />
             default:
                 return <LineChart />
 
@@ -401,7 +410,7 @@ export default function ReportView(offset) {
                 <div className="mx-auto p-6 md:pt-12 sm:p-8 h-full flex flex-col">
 
                     <div className='report-graph-type flex flex-row md:flex-wrap overflow-x-auto sm:overflow-hidden	  '>
-                        <div className={'mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300 ' + (graphType === "stacked" ? " active-card" : "")}
+                        {/* <div className={'mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300 ' + (graphType === "stacked" ? " active-card" : "")}
                             onClick={() => setGraphType("stacked")}  >
                             <StackedLineChartRoundedIcon className='text-gray-800' />
                             <h4 className='text-lg font-semibold text-gray-800'>STACKED </h4>
@@ -411,7 +420,7 @@ export default function ReportView(offset) {
                             onClick={() => setGraphType("line")}  >
                             <TimelineRoundedIcon className='text-gray-800 ' />
                             <h4 className='text-lg font-semibold text-gray-800'>LINE </h4>
-                        </div>
+                        </div> */}
 
                         <div className={'mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300 ' + (graphType === "tree" ? " active-card" : "")}
                             onClick={() => setGraphType("tree")}  >
@@ -458,12 +467,13 @@ export default function ReportView(offset) {
 
                     </div>
                     <div className='flex flex-col  mt-8 mb-12 lg:flex-row'>
+
                         <div className="w-full sm:w-96 mt-6 sm:mt-0 ">
-                            <SearchBox type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} selectOnly onSelect={(items) => setListOne([...items])} />
+                            <SearchBox clearEntry={queryType} type={queryType === "product" ? "product" : "country"} placeholder={queryType === "product" ? "Search product" : "Search country"} selectOnly onSelect={(items) => setListOne([...items])} />
                         </div>
                         {graphType === "geomap" && queryType !== "product" ? null :
                             <div className="w-full sm:w-96 mt-6 ml-0 md:ml-0 lg:ml-16 lg:mt-0 ">
-                                <SearchBox type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly onSelect={(items) => setListTwo([...items])} />
+                                <SearchBox clearEntry={queryType} type={"country"} placeholder={queryType === "product" ? "Search country" : "Search Partner Country"} selectOnly onSelect={(items) => setListTwo([...items])} />
                             </div>}
 
                         <div className='ml-0 lg:ml-12 mt-5 lg:mt-0'>
@@ -476,7 +486,7 @@ export default function ReportView(offset) {
                     <div className='flex mt-8 h-96 w-full flex-col'>
                         <h2 className='mb-2 font-semibold text-2xl text-center text-gray-700 mb-6'>{titleFormatter()}</h2>
 
-                        {renderChart()}
+                        {renderChart(visData)}
                     </div>
 
 

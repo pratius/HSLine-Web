@@ -1,7 +1,7 @@
 import { SearchOutlined } from '@mui/icons-material';
 import { Select, Spin } from 'antd';
 import debounce from 'lodash/debounce';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { API_ENDPOINT_PRODUCT_SEARCH_COUNTRY, API_ENDPOINT_PRODUCT_SEARCH_ITEMS } from 'scenes/Products/products.constants';
 import { history } from "Store";
@@ -183,6 +183,10 @@ const SearchBox = (props) => {
     const [value, setValue] = useState([]);
     const dispatch = useDispatch()
 
+
+    useEffect(() => {
+        setValue([])
+    }, [props.clearEntry])
 
     const handleItemSelected = (selectedItem) => {
         setValue(selectedItem);
