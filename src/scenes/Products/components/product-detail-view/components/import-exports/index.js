@@ -28,14 +28,14 @@ export default function ImportExports(offset) {
                     <div className='flex mt-8'>
                         <div className='graphArea w-full h-80'>
                             <h5 className='font-semibold text-lg text-center'>Total - $4.3B</h5>
-                            <TreeGraph />
+                            <TreeGraph data={[]} />
                         </div>
 
                     </div>
                     <div className='flex mt-8'>
                         <div className='graphArea w-full h-80'>
                             <h5 className='font-semibold text-lg text-center'>Total - $4.3M</h5>
-                            <TreeGraph />
+                            <TreeGraph data={[]} />
                         </div>
 
                     </div>

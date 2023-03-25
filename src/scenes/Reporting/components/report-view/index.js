@@ -17,7 +17,7 @@ import { API_ENDPOINT_REPORTS_BUILD_VISUALIZATION } from 'scenes/Reporting/repor
 export default function ReportView(offset) {
     const [alignment, setAlignment] = React.useState('product');
     const [queryType, setQueryType] = useState("product")
-    const [graphType, setGraphType] = useState("tree")
+    const [graphType, setGraphType] = useState("geomap")
     const [tradeType, setTradeType] = useState("imports")
     const [listOne, setListOne] = useState([])
     const [listTwo, setListTwo] = useState([])
@@ -422,6 +422,13 @@ export default function ReportView(offset) {
                             <h4 className='text-lg font-semibold text-gray-800'>LINE </h4>
                         </div> */}
 
+                        <div className={'mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300 ' + (graphType === "geomap" ? " active-card" : "")}
+                            onClick={() => setGraphType("geomap")}  >
+                            <LanguageRoundedIcon className='text-gray-800' />
+                            <h4 className='text-lg font-semibold text-gray-800'>GEO MAP </h4>
+                        </div>
+
+
                         <div className={'mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300 ' + (graphType === "tree" ? " active-card" : "")}
                             onClick={() => setGraphType("tree")}  >
                             <TableChartRoundedIcon className='text-gray-800' />
@@ -430,11 +437,6 @@ export default function ReportView(offset) {
 
 
 
-                        <div className={'mb-6 mb-6 graph-type-card w-40 h-12 rounded drop-shadow-md bg-white p-2 flex items-center justify-center mr-6 cursor-pointer hover:bg-slate-900 duration-300 ' + (graphType === "geomap" ? " active-card" : "")}
-                            onClick={() => setGraphType("geomap")}  >
-                            <LanguageRoundedIcon className='text-gray-800' />
-                            <h4 className='text-lg font-semibold text-gray-800'>GEO MAP </h4>
-                        </div>
 
 
 
